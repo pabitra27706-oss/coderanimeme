@@ -1,0 +1,69 @@
+:root {
+  --bg-1: #080b12;
+  --bg-2: #0d1320;
+  --bg-3: #11192a;
+  --surface: rgba(18, 25, 40, 0.72);
+  --surface-strong: rgba(20, 28, 46, 0.92);
+  --surface-light: rgba(255, 255, 255, 0.04);
+  
+  --text-1: #f5f7ff;
+  --text-2: #b7c0d8;
+  --text-3: #7f8cad;
+  
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.15);
+  
+  --accent-1: #ff4d6d;
+  --accent-2: #00c2ff;
+  --accent-3: #7c5cff;
+  
+  --accent-1-hover: #ff355b;
+  --accent-2-hover: #00aedf;
+  
+  --success: #31d0aa;
+  --warning: #ffb84d;
+  --danger: #ff5b7a;
+  
+  --shadow-1: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 18px 60px rgba(0, 0, 0, 0.45);
+  --shadow-glow-pink: 0 0 40px rgba(255, 77, 109, 0.18);
+  --shadow-glow-cyan: 0 0 40px rgba(0, 194, 255, 0.18);
+  
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+  --radius-pill: 999px;
+  
+  --container: 1180px;
+  --nav-height: 74px;
+  
+  --transition-fast: 0.2s ease;
+  --transition: 0.35s ease;
+  --transition-slow: 0.6s ease;
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body.light-theme {
+  --bg-1: #f4f7fb;
+  --bg-2: #edf2f9;
+  --bg-3: #ffffff;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: rgba(255, 255, 255, 0.95);
+  --surface-light: rgba(0, 0, 0, 0.03);
+  
+  --text-1: #0d1320;
+  --text-2: #46516e;
+  --text-3: #6f7a98;
+  
+  --line: rgba(10, 20, 40, 0.08);
+  --line-strong: rgba(10, 20, 40, 0.14);
+  
+  --shadow-1: 0 10px 30px rgba(10, 20, 40, 0.08);
+  --shadow-2: 0 18px 60px rgba(10, 20, 40, 0.12);
+  --shadow-glow-pink: 0 0 40px rgba(255, 77, 109, 0.10);
+  --shadow-glow-cyan: 0 0 40px rgba(0, 194, 255, 0.10);
+}

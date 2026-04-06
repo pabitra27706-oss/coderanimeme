@@ -1,0 +1,22 @@
+{
+  "id": "project-placeholder",
+  "title": "First Python Visual Project",
+  "description": "The first public project for CoderAnimeMe is being prepared. It begins with Python and Turtle graphics, building visual patterns, shapes, and beginner-friendly coding ideas.",
+  "longDescription": "This project represents the starting point of the public coding journey. It is planned as an early Python creative coding build that can later connect with GitHub code and a YouTube walkthrough.",
+  "category": "python",
+  "tags": [
+    "python",
+    "turtle",
+    "creative-coding",
+    "starter-project"
+  ],
+  "status": "coming-soon",
+  "thumbnail": "assets/images/projects/placeholder.png",
+  "dateCreated": "2025-01-01",
+  "links": {
+    "githubRepo": null,
+    "liveDemo": null,
+    "youtubeVideo": null
+  },
+  "featured": true
+}

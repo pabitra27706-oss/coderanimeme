@@ -1,0 +1,40 @@
+{
+  "skills": [
+    {
+      "name": "Python",
+      "category": "language",
+      "level": "beginner",
+      "featured": true
+    },
+    {
+      "name": "Turtle Graphics",
+      "category": "creative coding",
+      "level": "beginner",
+      "featured": true
+    },
+    {
+      "name": "Git",
+      "category": "tool",
+      "level": "beginner",
+      "featured": true
+    },
+    {
+      "name": "GitHub",
+      "category": "platform",
+      "level": "beginner",
+      "featured": true
+    },
+    {
+      "name": "HTML",
+      "category": "frontend",
+      "level": "beginner",
+      "featured": true
+    },
+    {
+      "name": "CSS",
+      "category": "frontend",
+      "level": "beginner",
+      "featured": true
+    }
+  ]
+}

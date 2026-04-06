@@ -1,0 +1,25 @@
+{
+  "id": "project-001",
+  "title": "Python Turtle Flower Generator",
+  "description": "A creative Python Turtle project that draws flower-like patterns using loops, angles, and color combinations.",
+  "longDescription": "This project is one of the first visual experiments in the CoderAnimeMe journey. It focuses on using Python Turtle to create decorative flower-style patterns while practicing loops, functions, and geometric logic. The project is designed as both a learning exercise and a visual coding showcase.",
+  "category": "python",
+  "tags": [
+    "python",
+    "turtle",
+    "creative-coding",
+    "loops",
+    "geometry"
+  ],
+  "status": "completed",
+  "thumbnail": "assets/images/projects/placeholder.png",
+  "dateCreated": "2025-01-01",
+  "repoUrl": "https://github.com/pabitra27706-oss/python-turtle-flower-generator",
+  "liveUrl": null,
+  "relatedVideo": "video-001",
+  "whatILearned": [
+    "How loops can create repeating visual structures",
+    "How Turtle graphics can turn simple logic into visual patterns",
+    "How small experiments can become public portfolio projects"
+  ]
+}

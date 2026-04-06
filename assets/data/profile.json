@@ -1,0 +1,26 @@
+{
+  "name": "CoderAnimeMe",
+  "channelName": "CoderAnimeMe",
+  "tagline": "Code. Create. Grow.",
+  "about": [
+    "CoderAnimeMe is a programming creator identity built around learning in public, sharing progress, and growing through real projects.",
+    "The journey starts with Python and creative coding, then expands into web development, stronger project systems, and better technical communication.",
+    "This website is designed as a long-term creator portfolio where every project, experiment, and future tutorial can connect in one place."
+  ],
+  "avatar": "assets/images/avatar.png",
+  "startedYear": 2025,
+  "currentFocus": "Python, Turtle Graphics, and Creative Coding",
+  "links": {
+    "youtube": "https://youtube.com/@coderanimeme",
+    "github": "https://github.com/pabitra27706-oss",
+    "email": "",
+    "twitter": "",
+    "linkedin": ""
+  },
+  "seo": {
+    "title": "CoderAnimeMe | Code. Create. Grow.",
+    "description": "Modern programming creator portfolio focused on Python, creative coding, projects, and a growing learning journey.",
+    "ogImage": "assets/images/og-banner.png",
+    "url": "https://coderanimeme.github.io/"
+  }
+}

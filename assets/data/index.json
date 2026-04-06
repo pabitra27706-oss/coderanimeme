@@ -1,0 +1,26 @@
+{
+  "projects": [
+    {
+      "id": "project-001",
+      "file": "assets/data/projects/project-001.json",
+      "featured": true
+    },
+    {
+      "id": "project-placeholder",
+      "file": "assets/data/projects/project-placeholder.json",
+      "featured": false
+    }
+  ],
+  "videos": [
+    {
+      "id": "video-001",
+      "file": "assets/data/videos/video-001.json",
+      "featured": true
+    },
+    {
+      "id": "video-placeholder",
+      "file": "assets/data/videos/video-placeholder.json",
+      "featured": false
+    }
+  ]
+}
