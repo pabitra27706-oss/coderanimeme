@@ -3,7 +3,7 @@
     {
       "id": "project-001",
       "file": "assets/data/projects/project-001.json",
-      "featured": true
+      "featured": false
     },
     {
       "id": "project-placeholder",
