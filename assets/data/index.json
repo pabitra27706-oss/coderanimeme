@@ -24,18 +24,8 @@
     },
     {
       "id": "video-002",
-      "title": "Rainbow Flower - Python Turtle Graphics",
-      "description": "Create a mesmerizing rainbow flower animation using Python's turtle graphics module with dynamic color gradients and layered petals.",
-      "category": "tutorial",
-      "tags": [
-        "python",
-        "turtle",
-        "graphics",
-        "animation"
-      ],
-      "thumbnail": "assets/images/projects/rainbow-flower-thumb.png",
-      "datePublished": "2025-01-15",
-      "youtubeUrl": "https://youtube.com/@coderanimeme"
+      "file": "assets/data/videos/video-002.json",
+      "featured": false
     }
   ]
 }
