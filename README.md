@@ -8,7 +8,7 @@ Official website for **CoderAnimeMe** — a programming portfolio and creator pl
 
 ## Live Website
 
-https://coderanimeme.github.io/
+[https://coderanimeme.github.io/](https://pabitra27706-oss.github.io/coderanimeme/)
 
 ---
 
@@ -70,7 +70,7 @@ All tutorial code is displayed directly on the website — no need to leave the 
 
 YouTube: https://youtube.com/@coderanimeme
 GitHub: https://github.com/pabitra27706-oss
-Website: https://coderanimeme.github.io/
+Website: [https://coderanimeme.github.io/](https://pabitra27706-oss.github.io/coderanimeme/)
 
 ---
 
