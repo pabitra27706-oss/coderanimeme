@@ -1,0 +1,33 @@
+{
+  "id": "video-002",
+  "title": "Rainbow Flower - Python Turtle Graphics",
+  "description": "Create a mesmerizing rainbow flower animation using Python's turtle graphics module with dynamic color gradients and layered petals.",
+  "longDescription": "Learn how to create a stunning rainbow flower animation using Python's turtle graphics library. This tutorial covers advanced turtle techniques including circular arcs, HSV color manipulation with colorsys, dynamic brightness and saturation control, and layered petal rendering. You'll learn how to use polar coordinates to arrange petals in a circular pattern, create smooth color transitions across the spectrum, and optimize turtle rendering with tracer() for better performance. Perfect for intermediate Python learners who want to explore creative coding and visual programming.",
+  "category": "tutorial",
+  "tags": [
+    "python",
+    "turtle",
+    "graphics",
+    "animation",
+    "colors",
+    "art",
+    "beginner-friendly"
+  ],
+  "thumbnail": "assets/images/projects/rainbow-flower-thumb.png",
+  "youtubeUrl": "https://youtube.com/@coderanimeme",
+  "youtubeId": null,
+  "datePublished": "2025-01-15",
+  "duration": "12:30",
+  "relatedProject": null,
+  "sourceRepo": "https://github.com/pabitra27706-oss",
+  "websiteLink": null,
+  "folderLink": null,
+  "files": [
+    {
+      "name": "rainbow_flower.py",
+      "path": "assets/code/video-002/rainbow_flower.py",
+      "language": "python",
+      "directLink": "https://raw.githubusercontent.com/pabitra27706-oss/coderanimeme.github.io/main/assets/code/video-002/rainbow_flower.py"
+    }
+  ]
+}
