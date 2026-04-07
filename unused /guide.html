@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owner Guide | CoderAnimeMe</title>
+  <meta name="description" content="Practical guide for managing and updating the CoderAnimeMe website content.">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a2d;
+      --line: rgba(255,255,255,0.08);
+      --text: #f5f7ff;
+      --muted: #a8b3cf;
+      --accent: #ff4d6d;
+      --accent-2: #00c2ff;
+      --ok: #31d0aa;
+      --warn: #ffb84d;
+      --danger: #ff6883;
+      --mono: "JetBrains Mono", monospace;
+      --body: "Inter", system-ui, sans-serif;
+      --heading: "Outfit", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--body);
+      background:
+        radial-gradient(circle at top left, rgba(255,77,109,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0,194,255,0.08), transparent 30%),
+        linear-gradient(180deg, #080b12, var(--bg));
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 32px 0 70px;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--heading);
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
+
+    h1 { font-size: clamp(2rem, 6vw, 3.6rem); }
+    h2 {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      margin-top: 28px;
+    }
+
+    h3 { font-size: 1.08rem; }
+
+    p {
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+
+    .hero, .card, .section-card {
+      background: rgba(18, 26, 45, 0.82);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero {
+      margin-bottom: 26px;
+      padding: 28px;
+    }
+
+    .kicker {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--accent-2);
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      margin-bottom: 14px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .two {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .code {
+      background: #0a0f1c;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 14px;
+      overflow-x: auto;
+      font-family: var(--mono);
+      font-size: 0.84rem;
+      color: #dbe6ff;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 10px;
+      margin: 4px 6px 0 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+    }
+
+    .checklist {
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .checklist li { margin-bottom: 8px; }
+
+    .ok { color: var(--ok); font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    .danger { color: var(--danger); font-weight: 700; }
+
+    .tip {
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      background: rgba(255,77,109,0.08);
+      border-radius: 0 12px 12px 0;
+      margin-top: 10px;
+      color: #ffd9e1;
+    }
+
+    .section-card { margin-top: 22px; }
+
+    @media (max-width: 860px) {
+      .two {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <section class="hero">
+      <div class="kicker">Owner Guide</div>
+      <h1>How to update and maintain your website</h1>
+      <p>
+        This page is your practical guide. It explains exactly how to add new projects,
+        how to add new videos with copyable code, what files you must update, and what mistakes to avoid.
+      </p>
+    </section>
+
+    <section class="section-card">
+      <h2>1. Your normal workflow</h2>
+      <div class="card">
+        <p>You will mostly work in these files and folders:</p>
+        <div>
+          <span class="tag">assets/data/index.json</span>
+          <span class="tag">assets/data/projects/</span>
+          <span class="tag">assets/data/videos/</span>
+          <span class="tag">assets/code/</span>
+          <span class="tag">assets/images/projects/</span>
+        </div>
+        <div class="tip">
+          The website engine is already built. Most of the time you do <strong>not</strong> need to edit JavaScript or CSS.
+          You only add content files.
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>2. How to add a new project</h2>
+      <div class="grid two">
+
+        <div class="card">
+          <h3>Step-by-step project workflow</h3>
+          <ol class="checklist">
+            <li>Create a separate GitHub repository for the project</li>
+            <li>Create a thumbnail image in <span class="tag">assets/images/projects/</span></li>
+            <li>Create a new project JSON file in <span class="tag">assets/data/projects/</span></li>
+            <li>Add the project entry to <span class="tag">assets/data/index.json</span></li>
+            <li>Test <span class="tag">projects.html</span></li>
+            <li>Test <span class="tag">project.html?id=your-project-id</span></li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>Project JSON template</h3>
+          <div class="code">{
+  "id": "project-002",
+  "title": "Project Title",
+  "description": "Short description.",
+  "longDescription": "Long project explanation.",
+  "category": "python",
+  "tags": ["python", "turtle"],
+  "status": "completed",
+  "thumbnail": "assets/images/projects/project-image.png",
+  "dateCreated": "2025-01-10",
+  "repoUrl": "https://github.com/pabitra27706-oss/project-repo",
+  "liveUrl": null,
+  "relatedVideo": "video-002",
+  "whatILearned": [
+    "Lesson one",
+    "Lesson two"
+  ]
+}</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>3. How to add a new video with copyable code</h2>
+      <div class="grid two">
+
+        <div class="card">
+          <h3>Step-by-step video workflow</h3>
+          <ol class="checklist">
+            <li>Create a new video JSON file in <span class="tag">assets/data/videos/</span></li>
+            <li>Create a code folder like <span class="tag">assets/code/video-002/</span></li>
+            <li>Add the real code files inside that folder</li>
+            <li>Add the video entry to <span class="tag">assets/data/index.json</span></li>
+            <li>Test <span class="tag">videos.html</span></li>
+            <li>Test <span class="tag">video.html?id=video-002</span></li>
+            <li>Check that copy buttons work</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h3>Video JSON template</h3>
+          <div class="code">{
+  "id": "video-002",
+  "title": "Video Title",
+  "description": "Short description.",
+  "longDescription": "Long explanation.",
+  "category": "tutorial",
+  "tags": ["python", "tutorial"],
+  "thumbnail": "assets/images/projects/project-image.png",
+  "youtubeUrl": "https://youtube.com/watch?v=YOUR_LINK",
+  "youtubeId": null,
+  "datePublished": "2025-01-10",
+  "duration": "08:00",
+  "relatedProject": "project-002",
+  "sourceRepo": "https://github.com/pabitra27706-oss/project-repo",
+  "websiteLink": null,
+  "files": [
+    {
+      "name": "main.py",
+      "path": "assets/code/video-002/main.py",
+      "language": "python"
+    }
+  ]
+}</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>4. How the code copy system works</h2>
+      <div class="grid two">
+
+        <div class="card">
+          <h3>What you need</h3>
+          <p>For each tutorial video:</p>
+          <ul class="checklist">
+            <li>A video JSON file</li>
+            <li>A folder in <span class="tag">assets/code/</span></li>
+            <li>One or more real source files inside it</li>
+            <li>The correct file list inside the video JSON</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Example file structure</h3>
+          <div class="code">assets/code/video-002/
+├── main.py
+├── helper.py
+└── README.txt</div>
+          <p>Then list those inside the video JSON <span class="tag">files</span> array.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>5. The one file you must never forget</h2>
+      <div class="card">
+        <h3>assets/data/index.json</h3>
+        <p>This is the master list for all your project and video files.</p>
+        <p><span class="warn">If you create a new project or video but forget to update this file, the site will not show the content.</span></p>
+
+        <div class="code">{
+  "projects": [
+    {
+      "id": "project-002",
+      "file": "assets/data/projects/project-002.json",
+      "featured": true
+    }
+  ],
+  "videos": [
+    {
+      "id": "video-002",
+      "file": "assets/data/videos/video-002.json",
+      "featured": true
+    }
+  ]
+}</div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>6. What you always need to update</h2>
+      <div class="grid two">
+
+        <div class="card">
+          <h3>For every new project</h3>
+          <ul class="checklist">
+            <li><span class="ok">Create</span> new project JSON file</li>
+            <li><span class="ok">Add</span> project to index.json</li>
+            <li><span class="ok">Add</span> thumbnail image</li>
+            <li><span class="ok">Set</span> GitHub repo URL</li>
+            <li><span class="ok">Set</span> related video if available</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>For every new video</h3>
+          <ul class="checklist">
+            <li><span class="ok">Create</span> new video JSON file</li>
+            <li><span class="ok">Add</span> video to index.json</li>
+            <li><span class="ok">Create</span> code folder</li>
+            <li><span class="ok">Add</span> source files</li>
+            <li><span class="ok">Set</span> YouTube URL</li>
+            <li><span class="ok">Set</span> related project if available</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>7. Rules you should always follow</h2>
+      <div class="card">
+        <ul class="checklist">
+          <li>Every project must have a unique <span class="tag">id</span></li>
+          <li>Every video must have a unique <span class="tag">id</span></li>
+          <li>Every new project/video must be added to <span class="tag">index.json</span></li>
+          <li>Project and video IDs should match related links properly</li>
+          <li>File paths must be exact</li>
+          <li>JSON must be valid with correct quotes and commas</li>
+          <li>Project repos should be separate GitHub repositories</li>
+          <li>Video code should live in <span class="tag">assets/code/video-XXX/</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>8. Common mistakes to avoid</h2>
+      <div class="grid two">
+
+        <div class="card">
+          <h3>Content mistakes</h3>
+          <ul class="checklist">
+            <li><span class="danger">Forgetting index.json</span></li>
+            <li><span class="danger">Using wrong image path</span></li>
+            <li><span class="danger">Using wrong code file path</span></li>
+            <li><span class="danger">Wrong project/video id</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>JSON mistakes</h3>
+          <ul class="checklist">
+            <li><span class="danger">Missing comma</span></li>
+            <li><span class="danger">Using single quotes instead of double quotes</span></li>
+            <li><span class="danger">Trailing comma in JSON</span></li>
+            <li><span class="danger">Broken array brackets</span></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>9. Testing checklist</h2>
+      <div class="card">
+        <ul class="checklist">
+          <li>Does the new card appear on the list page?</li>
+          <li>Does the detail page open with the correct <span class="tag">id</span>?</li>
+          <li>Does the thumbnail load?</li>
+          <li>Does the GitHub repo button open correctly?</li>
+          <li>Does the related project/video link work?</li>
+          <li>For videos: do the code files load?</li>
+          <li>For videos: does the copy button work?</li>
+          <li>For videos: does the copy all button work?</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>10. Short summary</h2>
+      <div class="card">
+        <p><strong>For projects:</strong> create project JSON + add to index.json + add thumbnail + add GitHub repo.</p>
+        <p><strong>For videos:</strong> create video JSON + create code folder + add code files + add to index.json.</p>
+        <div class="tip">
+          If you only remember one thing, remember this:
+          <strong>new content = JSON file + index.json update + correct file paths.</strong>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
