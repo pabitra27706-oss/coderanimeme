@@ -5,7 +5,7 @@
   "longDescription": "This tutorial introduces a simple but visually satisfying Python Turtle project. It walks through the logic of drawing repeating flower-like shapes and explains how loops, turning angles, and colors work together to create the final design.",
   "category": "tutorial",
   "tags": ["python", "turtle", "tutorial", "creative-coding"],
-  "thumbnail": "null",
+  "thumbnail": null,
   "youtubeUrl": "https://youtube.com/@coderanimeme",
   "youtubeId": null,
   "datePublished": "2025-01-01",
