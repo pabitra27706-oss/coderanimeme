@@ -195,8 +195,8 @@ The site includes a **full-featured admin panel** for content management without
 Navigate to: `https://yourdomain.com/admin/auth.html`
 
 **Default passwords:**
-- `India00@`
-- `India00@@`
+- `SetYourSelf`
+- `SamePassInConsoleCommand`
 
 > ⚠️ **Security Note:** Change password hashes in `admin/config.json` before deploying.
 
