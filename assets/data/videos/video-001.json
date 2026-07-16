@@ -4,12 +4,7 @@
   "description": "A beginner-friendly tutorial showing how to create a flower pattern using Python Turtle graphics.",
   "longDescription": "This tutorial introduces a simple but visually satisfying Python Turtle project. It walks through the logic of drawing repeating flower-like shapes and explains how loops, turning angles, and colors work together to create the final design.",
   "category": "tutorial",
-  "tags": [
-    "python",
-    "turtle",
-    "tutorial",
-    "creative-coding"
-  ],
+  "tags": ["python", "turtle", "tutorial", "creative-coding"],
   "thumbnail": "assets/images/projects/placeholder.png",
   "youtubeUrl": "https://youtube.com/@coderanimeme",
   "youtubeId": null,
@@ -17,11 +12,12 @@
   "duration": "08:30",
   "relatedProject": "project-001",
   "sourceRepo": "https://github.com/pabitra27706-oss/python-turtle-flower-generator",
-  "websiteLink": null,
+  "hasLiveLink": false,
+  "liveLink": null,
   "files": [
     {
       "name": "main.py",
-      "path": "assets/code/video-001/main.py",
+      "path": "assets/code/video/video-001/main.py",
       "language": "python"
     }
   ]

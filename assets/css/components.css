@@ -817,3 +817,327 @@ body.light-theme .code-block {
     grid-template-columns: 1fr;
   }
 }
+/* ===================================================
+   DOWNLOAD BUTTONS
+   =================================================== */
+.download-btn {
+  background: linear-gradient(135deg, var(--accent-2), #40d4ff);
+  color: #001018;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  min-height: 42px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition);
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.download-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.zip-download-btn {
+  background: linear-gradient(135deg, var(--accent-1), #ff6b86);
+  color: white;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  min-height: 42px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition);
+}
+
+.zip-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-pink);
+}
+
+.zip-download-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ===================================================
+   AUTO-GENERATED THUMBNAILS
+   =================================================== */
+.auto-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: white;
+  min-height: 220px;
+}
+
+.auto-thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12),
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.auto-thumb::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.auto-thumb-title {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  line-height: 1.2;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.auto-thumb-badge {
+  position: relative;
+  z-index: 1;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* category gradient backgrounds */
+.auto-thumb.cat-python {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+.auto-thumb.cat-tutorial {
+  background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+}
+
+.auto-thumb.cat-creative {
+  background: linear-gradient(135deg, #be185d, #f472b6);
+}
+
+.auto-thumb.cat-web {
+  background: linear-gradient(135deg, #0e7490, #22d3ee);
+}
+
+.auto-thumb.cat-tool {
+  background: linear-gradient(135deg, #15803d, #4ade80);
+}
+
+.auto-thumb.cat-default {
+  background: linear-gradient(135deg, #374151, #9ca3af);
+}
+/* ===================================================
+   PRISM SYNTAX HIGHLIGHTING — CUSTOM THEME
+   Overrides prism-tomorrow to match site glass style
+   =================================================== */
+
+/* Base code block reset */
+pre[class*="language-"],
+code[class*="language-"] {
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  text-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* Wrapper background */
+.code-block-wrap {
+  overflow-x: auto;
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.code-block-wrap pre {
+  margin: 0;
+  padding: 22px;
+  min-width: max-content;
+}
+
+/* Dark theme token colors */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7f8cad;
+  font-style: italic;
+}
+
+.token.keyword,
+.token.important,
+.token.bold {
+  color: #ff4d6d;
+  font-weight: 600;
+}
+
+.token.string,
+.token.char,
+.token.attr-value {
+  color: #4ade80;
+}
+
+.token.function,
+.token.function-definition {
+  color: #00c2ff;
+}
+
+.token.number,
+.token.boolean,
+.token.constant {
+  color: #ffb84d;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #a78bfa;
+}
+
+.token.class-name,
+.token.builtin {
+  color: #f472b6;
+}
+
+.token.decorator,
+.token.annotation {
+  color: #ffb84d;
+}
+
+.token.punctuation {
+  color: #b7c0d8;
+}
+
+.token.property,
+.token.tag,
+.token.symbol,
+.token.deleted {
+  color: #ff4d6d;
+}
+
+.token.selector,
+.token.attr-name,
+.token.inserted {
+  color: #4ade80;
+}
+
+.token.atrule,
+.token.regex,
+.token.variable {
+  color: #00c2ff;
+}
+
+/* Default text color */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #e7ecff;
+}
+
+/* ===================================================
+   LIGHT THEME OVERRIDES
+   =================================================== */
+body.light-theme .code-block-wrap {
+  background: rgba(10, 20, 40, 0.05);
+}
+
+body.light-theme code[class*="language-"],
+body.light-theme pre[class*="language-"] {
+  color: #0d1320;
+}
+
+body.light-theme .token.comment,
+body.light-theme .token.prolog,
+body.light-theme .token.doctype,
+body.light-theme .token.cdata {
+  color: #6f7a98;
+}
+
+body.light-theme .token.keyword,
+body.light-theme .token.important {
+  color: #be185d;
+  font-weight: 600;
+}
+
+body.light-theme .token.string,
+body.light-theme .token.char,
+body.light-theme .token.attr-value {
+  color: #15803d;
+}
+
+body.light-theme .token.function,
+body.light-theme .token.function-definition {
+  color: #0e7490;
+}
+
+body.light-theme .token.number,
+body.light-theme .token.boolean,
+body.light-theme .token.constant {
+  color: #b45309;
+}
+
+body.light-theme .token.operator {
+  color: #7c3aed;
+}
+
+body.light-theme .token.class-name,
+body.light-theme .token.builtin {
+  color: #be185d;
+}
+
+body.light-theme .token.punctuation {
+  color: #46516e;
+}
+
+body.light-theme .token.decorator,
+body.light-theme .token.annotation {
+  color: #b45309;
+}

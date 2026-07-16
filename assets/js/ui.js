@@ -1,6 +1,9 @@
 (function() {
   "use strict";
   
+  /* ===================================================
+     ICONS
+     =================================================== */
   function iconCode() {
     return `
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -50,10 +53,67 @@
     `;
   }
   
+  function iconDownload() {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 3V15M12 15L8 11M12 15L16 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 17V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    `;
+  }
+  
+  function iconZip() {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 4C4 2.89543 4.89543 2 6 2H14L20 8V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M14 2V8H20" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M12 11V13M12 15V17M10 11H14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    `;
+  }
+  
+  function iconGlobe() {
+    return `
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+        <path d="M12 3C12 3 8 7 8 12C8 17 12 21 12 21M12 3C12 3 16 7 16 12C16 17 12 21 12 21M3 12H21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    `;
+  }
+  
+  /* ===================================================
+     AUTO THUMBNAIL HELPER
+     =================================================== */
+  function getCategoryClass(category = "") {
+    const cat = category.toLowerCase();
+    if (cat.includes("python")) return "cat-python";
+    if (cat.includes("tutorial")) return "cat-tutorial";
+    if (cat.includes("creative")) return "cat-creative";
+    if (cat.includes("web") || cat.includes("frontend")) return "cat-web";
+    if (cat.includes("tool") || cat.includes("project")) return "cat-tool";
+    return "cat-default";
+  }
+  
+  function renderAutoThumb(title = "", category = "", badge = "") {
+    const catClass = getCategoryClass(category);
+    return `
+      <div class="auto-thumb ${catClass}">
+        <span class="auto-thumb-title">${title}</span>
+        <span class="auto-thumb-badge">${badge || category || "Project"}</span>
+      </div>
+    `;
+  }
+  
+  /* ===================================================
+     BADGE LIST
+     =================================================== */
   function renderBadgeList(tags = []) {
     return tags.map((tag) => `<span class="badge">${tag}</span>`).join("");
   }
   
+  /* ===================================================
+     STATUS HELPERS
+     =================================================== */
   function getStatusClass(status = "") {
     if (status === "completed") return "completed";
     if (status === "in-progress") return "progress";
@@ -66,6 +126,9 @@
     return "Coming Soon";
   }
   
+  /* ===================================================
+     PROJECT CARD
+     =================================================== */
   function renderProjectCard(project = {}) {
     const title = project.title || "Untitled Project";
     const description = project.description || "Project description coming soon.";
@@ -73,10 +136,14 @@
     const statusClass = getStatusClass(project.status);
     const statusLabel = getStatusLabel(project.status);
     
+    const thumbHTML = project.thumbnail ?
+      `<img src="${project.thumbnail}" alt="${title} project thumbnail" loading="lazy">` :
+      renderAutoThumb(title, project.category || "", "Project");
+    
     return `
       <article class="card reveal">
         <div class="project-thumb">
-          ${project.thumbnail ? `<img src="${project.thumbnail}" alt="${title} project thumbnail" loading="lazy">` : ""}
+          ${thumbHTML}
         </div>
         <div class="card-body">
           <div class="card-topline">
@@ -94,21 +161,33 @@
                 ${iconGithub()} Repo
               </a>
             ` : ""}
+            ${project.hasLiveLink && project.liveLink ? `
+              <a class="btn btn-ghost btn-small" href="${project.liveLink}" target="_blank" rel="noopener noreferrer">
+                ${iconGlobe()} Live
+              </a>
+            ` : ""}
           </div>
         </div>
       </article>
     `;
   }
   
+  /* ===================================================
+     VIDEO CARD
+     =================================================== */
   function renderVideoCard(video = {}) {
     const title = video.title || "Untitled Video";
     const description = video.description || "Video description coming soon.";
     const tags = Array.isArray(video.tags) ? video.tags.filter(Boolean) : [];
     
+    const thumbHTML = video.thumbnail ?
+      `<img src="${video.thumbnail}" alt="${title} video thumbnail" loading="lazy">` :
+      renderAutoThumb(title, video.category || "tutorial", "Tutorial");
+    
     return `
       <article class="card reveal">
         <div class="video-thumb">
-          ${video.thumbnail ? `<img src="${video.thumbnail}" alt="${title} video thumbnail" loading="lazy">` : ""}
+          ${thumbHTML}
         </div>
         <div class="card-body">
           <div class="card-topline">
@@ -126,12 +205,20 @@
                 ${iconYoutube()} Watch
               </a>
             ` : ""}
+            ${video.hasLiveLink && video.liveLink ? `
+              <a class="btn btn-ghost btn-small" href="${video.liveLink}" target="_blank" rel="noopener noreferrer">
+                ${iconGlobe()} Live
+              </a>
+            ` : ""}
           </div>
         </div>
       </article>
     `;
   }
   
+  /* ===================================================
+     SKILL CARD
+     =================================================== */
   function renderSkillCard(skill = {}) {
     const name = skill.name || "Skill";
     const level = skill.level || "learning";
@@ -151,6 +238,9 @@
     `;
   }
   
+  /* ===================================================
+     EXPORTS
+     =================================================== */
   window.CoderAnimeUI = {
     iconCode,
     iconPlay,
@@ -158,6 +248,11 @@
     iconYoutube,
     iconArrowRight,
     iconSpark,
+    iconDownload,
+    iconZip,
+    iconGlobe,
+    getCategoryClass,
+    renderAutoThumb,
     renderBadgeList,
     renderProjectCard,
     renderVideoCard,

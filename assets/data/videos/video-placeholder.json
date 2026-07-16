@@ -3,17 +3,14 @@
   "title": "First Coding Video Coming Soon",
   "description": "The first video will introduce the project journey and begin with a Python-based creative coding experiment connected to the website and GitHub.",
   "category": "tutorial",
-  "tags": [
-    "python",
-    "beginner",
-    "creative-coding",
-    "journey"
-  ],
+  "tags": ["python", "beginner", "creative-coding", "journey"],
   "thumbnail": "assets/images/projects/placeholder.png",
   "youtubeUrl": "https://youtube.com/@coderanimeme",
   "youtubeId": null,
   "datePublished": null,
   "duration": null,
   "relatedProject": "project-placeholder",
+  "hasLiveLink": false,
+  "liveLink": null,
   "featured": true
 }

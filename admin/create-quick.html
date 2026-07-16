@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Add | CoderAnimeMe Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <div class="admin-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sidebar-logo-text">CoderAnimeMe</div>
+          <div class="sidebar-logo-sub">Admin Panel v2.0</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-label">Navigation</div>
+        <a href="index.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Dashboard
+        </a>
+
+        <div class="sidebar-label">Create Content</div>
+        <a href="create-manual.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 5V19M5 12H19"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+          </svg>
+          Manual Form
+        </a>
+        <a href="create-quick.html" class="sidebar-link active">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Quick Add
+        </a>
+
+        <div class="sidebar-label">Site</div>
+        <a href="../index.html" class="sidebar-link" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M18 13V19C18 20.1046 17.1046 21 16 21H5C3.89543 21 3 20.1046 3 19V8C3 6.89543 3.89543 6 5 6H11"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+            <path d="M15 3H21V9M21 3L9 15"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          View Site
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" data-logout>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 17L21 12L16 7M21 12H9"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="admin-main">
+
+      <!-- PAGE HEADER -->
+      <div class="page-header">
+        <div class="page-header-inner">
+          <div>
+            <div class="page-kicker">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Mode B
+            </div>
+            <h1 class="page-title">Quick Add</h1>
+            <p class="page-subtitle">
+              Paste your AI-generated input JSON. The form fills automatically.
+              Review, edit, then download the final JSON.
+            </p>
+          </div>
+        </div>
+
+        <!-- TYPE TABS -->
+        <div style="display:flex;gap:8px;margin-top:20px;">
+          <button class="btn btn-primary" id="q-tab-video">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M22.54 6.42A2.78 2.78 0 0 0 20.58 4.46C18.88 4 12 4 12 4S5.12 4 3.42 4.46A2.78 2.78 0 0 0 1.46 6.42A29 29 0 0 0 1 12A29 29 0 0 0 1.46 17.58A2.78 2.78 0 0 0 3.42 19.54C5.12 20 12 20 12 20S18.88 20 20.58 19.54A2.78 2.78 0 0 0 22.54 17.58A29 29 0 0 0 23 12A29 29 0 0 0 22.54 6.42Z"
+                stroke="currentColor" stroke-width="1.6"
+                stroke-linejoin="round"/>
+              <path d="M10 15L16 12L10 9V15Z"
+                stroke="currentColor" stroke-width="1.6"
+                stroke-linejoin="round"/>
+            </svg>
+            Video JSON
+          </button>
+          <button class="btn btn-ghost" id="q-tab-project">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Project JSON
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 1: PASTE AREA -->
+      <div class="admin-card" style="margin-bottom:24px;">
+        <div class="admin-card-title">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 5.55228 9.44772 6 10 6H14C14.5523 6 15 5.55228 15 5M9 5C9 4.44772 9.44772 4 10 4H14C14.5523 4 15 4.44772 15 5"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Step 1 — Paste AI Input JSON
+        </div>
+
+        <div class="alert alert-info" style="margin-bottom:16px;">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9"
+              stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 8V12M12 16H12.01"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+          </svg>
+          Ask your AI to generate an input JSON with fields like title,
+          description, tags, files (with filename + language). Paste it below.
+        </div>
+
+        <!-- AI PROMPT EXAMPLE -->
+        <details style="margin-bottom:16px;">
+          <summary style="
+            cursor:pointer;
+            font-size:0.82rem;
+            color:var(--cyan);
+            padding:8px 0;
+            user-select:none;
+          ">
+            Show example AI prompt to use
+          </summary>
+          <div style="
+            margin-top:10px;
+            padding:14px;
+            background:rgba(0,0,0,0.2);
+            border-radius:10px;
+            font-family:monospace;
+            font-size:0.78rem;
+            color:var(--text-2);
+            line-height:1.7;
+            white-space:pre-wrap;
+          ">Generate an admin input JSON for my YouTube channel website.
+I made a Python turtle project called "[YOUR TITLE]".
+
+Return ONLY this JSON structure:
+{
+  "title": "...",
+  "description": "one sentence",
+  "longDescription": "2-3 sentences",
+  "category": "tutorial",
+  "duration": "MM:SS",
+  "youtubeUrl": "https://youtube.com/...",
+  "sourceRepo": "https://github.com/...",
+  "tags": ["python", "turtle", "..."],
+  "files": [
+    { "filename": "main.py", "language": "python" }
+  ]
+}</div>
+        </details>
+
+        <textarea
+          class="paste-area"
+          id="q-paste-area"
+          placeholder='Paste your AI-generated JSON here...
+
+Example:
+{
+  "title": "Snake Game in Python",
+  "description": "A classic snake game built with Python turtle.",
+  "longDescription": "Full tutorial covering game loop, collision detection...",
+  "category": "tutorial",
+  "duration": "12:30",
+  "youtubeUrl": "https://youtube.com/watch?v=...",
+  "tags": ["python", "turtle", "game"],
+  "files": [
+    { "filename": "snake.py", "language": "python" },
+    { "filename": "food.py",  "language": "python" }
+  ]
+}'
+        ></textarea>
+
+        <div class="parse-error" id="q-parse-error"></div>
+        <div class="parse-success" id="q-parse-success"></div>
+
+        <div class="btn-row" style="margin-top:14px;">
+          <button class="btn btn-primary" id="q-parse-btn">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Parse &amp; Fill Form
+          </button>
+          <button class="btn btn-ghost" id="q-clear-btn">
+            Clear
+          </button>
+        </div>
+      </div>
+
+      <!-- STEP 2: EDITABLE FORM -->
+      <div id="q-form-area">
+
+        <!-- VIDEO FORM SECTION -->
+        <div id="qv-form-section" style="display:none;">
+          <div class="admin-card" style="margin-bottom:16px;">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M11 4H4C3.44772 4 3 4.44772 3 5V20C3 20.5523 3.44772 21 4 21H19C19.5523 21 20 20.5523 20 19V12"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.5 2.5C18.8978 2.10217 19.4374 1.87868 20 1.87868C20.5626 1.87868 21.1022 2.10217 21.5 2.5C21.8978 2.89782 22.1213 3.43739 22.1213 4C22.1213 4.56261 21.8978 5.10217 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Step 2 — Review &amp; Edit Video Fields
+            </div>
+
+            <form class="form-grid" id="qv-form" autocomplete="off">
+
+              <!-- ID + Date -->
+              <div class="form-grid form-grid-2">
+                <div class="field-group">
+                  <label class="field-label" for="qv-id">
+                    Video ID <span class="field-required">*</span>
+                  </label>
+                  <input id="qv-id" class="field-input" type="text"
+                    placeholder="video-003" required>
+                  <button type="button" class="btn btn-ghost btn-sm"
+                    id="qv-suggest-id" style="margin-top:8px;">
+                    Suggest Next ID
+                  </button>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qv-date">
+                    Date Published
+                  </label>
+                  <input id="qv-date" class="field-input" type="date">
+                </div>
+              </div>
+
+              <!-- Title + Category -->
+              <div class="form-grid form-grid-2">
+                <div class="field-group">
+                  <label class="field-label" for="qv-title">
+                    Title <span class="field-required">*</span>
+                  </label>
+                  <input id="qv-title" class="field-input" type="text"
+                    placeholder="Video Title" required>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qv-category">
+                    Category
+                  </label>
+                  <select id="qv-category" class="field-select">
+                    <option value="tutorial">Tutorial</option>
+                    <option value="python">Python</option>
+                    <option value="creative-coding">Creative Coding</option>
+                    <option value="web">Web</option>
+                    <option value="tool">Tool</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Descriptions -->
+              <div class="field-group">
+                <label class="field-label" for="qv-desc">
+                  Short Description <span class="field-required">*</span>
+                </label>
+                <textarea id="qv-desc" class="field-textarea"
+                  rows="2" required></textarea>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="qv-longdesc">
+                  Long Description
+                </label>
+                <textarea id="qv-longdesc" class="field-textarea"
+                  rows="4"></textarea>
+              </div>
+
+              <!-- Tags -->
+              <div class="field-group">
+                <label class="field-label">Tags</label>
+                <div class="tags-input-wrap" id="qv-tags-wrap">
+                  <input class="tags-type-input" id="qv-tags-input"
+                    type="text" placeholder="Add tag and press Enter">
+                </div>
+              </div>
+
+              <!-- Links -->
+              <div class="form-grid form-grid-2">
+                <div class="field-group">
+                  <label class="field-label" for="qv-yt-url">
+                    YouTube URL
+                  </label>
+                  <input id="qv-yt-url" class="field-input" type="url"
+                    placeholder="https://youtube.com/watch?v=...">
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qv-yt-id">
+                    YouTube Video ID
+                  </label>
+                  <input id="qv-yt-id" class="field-input" type="text"
+                    placeholder="dQw4w9WgXcQ (optional)">
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qv-repo">
+                    Source Repo
+                  </label>
+                  <input id="qv-repo" class="field-input" type="url"
+                    placeholder="https://github.com/...">
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qv-duration">
+                    Duration
+                  </label>
+                  <input id="qv-duration" class="field-input" type="text"
+                    placeholder="08:30">
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qv-related">
+                    Related Project ID
+                  </label>
+                  <input id="qv-related" class="field-input" type="text"
+                    placeholder="project-001">
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qv-thumb">
+                    Thumbnail Filename
+                  </label>
+                  <input id="qv-thumb" class="field-input" type="text"
+                    placeholder="thumb.jpg">
+                </div>
+              </div>
+
+              <!-- Live Link -->
+              <div class="form-grid form-grid-2">
+                <div class="field-group">
+                  <label class="field-label">Has Live Link?</label>
+                  <div class="toggle-wrap">
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="qv-has-live">
+                      <span class="toggle-track"></span>
+                    </label>
+                    <span class="toggle-label">Show live button on site</span>
+                  </div>
+                </div>
+                <div class="field-group" id="qv-live-url-group"
+                  style="display:none;">
+                  <label class="field-label" for="qv-live-url">
+                    Live URL
+                  </label>
+                  <input id="qv-live-url" class="field-input" type="url"
+                    placeholder="https://example.com">
+                </div>
+              </div>
+
+              <!-- Files -->
+              <div class="field-group">
+                <label class="field-label">Source Files</label>
+                <div class="alert alert-info" style="margin-bottom:12px;">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9"
+                      stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M12 8V12M12 16H12.01"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+                  </svg>
+                  Paths auto-generate as:
+                  assets/code/video/VIDEO-ID/filename
+                </div>
+                <div class="files-list" id="qv-files-list"></div>
+                <button type="button" class="add-file-btn" id="qv-add-file">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                    <path d="M12 5V19M5 12H19"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+                  </svg>
+                  Add File
+                </button>
+              </div>
+
+              <!-- Actions -->
+              <div class="btn-row">
+                <button type="submit" class="btn btn-primary">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                    <path d="M12 3V15M12 15L8 11M12 15L16 11"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 17V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V17"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+                  </svg>
+                  Generate &amp; Download JSON
+                </button>
+                <button type="button" class="btn btn-ghost"
+                  id="qv-preview-btn">
+                  Preview JSON
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <!-- PROJECT FORM SECTION -->
+        <div id="qp-form-section" style="display:none;">
+          <div class="admin-card" style="margin-bottom:16px;">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M11 4H4C3.44772 4 3 4.44772 3 5V20C3 20.5523 3.44772 21 4 21H19C19.5523 21 20 20.5523 20 19V12"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M18.5 2.5C18.8978 2.10217 19.4374 1.87868 20 1.87868C20.5626 1.87868 21.1022 2.10217 21.5 2.5C21.8978 2.89782 22.1213 3.43739 22.1213 4C22.1213 4.56261 21.8978 5.10217 21.5 5.5L12 15L8 16L9 12L18.5 2.5Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Step 2 — Review &amp; Edit Project Fields
+            </div>
+
+            <form class="form-grid" id="qp-form" autocomplete="off">
+
+              <!-- ID + Date -->
+              <div class="form-grid form-grid-2">
+                <div class="field-group">
+                  <label class="field-label" for="qp-id">
+                    Project ID <span class="field-required">*</span>
+                  </label>
+                  <input id="qp-id" class="field-input" type="text"
+                    placeholder="project-003" required>
+                  <button type="button" class="btn btn-ghost btn-sm"
+                    id="qp-suggest-id" style="margin-top:8px;">
+                    Suggest Next ID
+                  </button>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qp-date">
+                    Date Created
+                  </label>
+                  <input id="qp-date" class="field-input" type="date">
+                </div>
+              </div>
+
+              <!-- Title + Category + Status -->
+              <div class="form-grid form-grid-2">
+                <div class="field-group">
+                  <label class="field-label" for="qp-title">
+                    Title <span class="field-required">*</span>
+                  </label>
+                  <input id="qp-title" class="field-input" type="text"
+                    placeholder="Project Title" required>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qp-category">
+                    Category
+                  </label>
+                  <select id="qp-category" class="field-select">
+                    <option value="python">Python</option>
+                    <option value="tutorial">Tutorial</option>
+                    <option value="creative-coding">Creative Coding</option>
+                    <option value="web">Web</option>
+                    <option value="tool">Tool</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qp-status">Status</label>
+                  <select id="qp-status" class="field-select">
+                    <option value="coming-soon">Coming Soon</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qp-thumb">
+                    Thumbnail Filename
+                  </label>
+                  <input id="qp-thumb" class="field-input" type="text"
+                    placeholder="thumb.jpg (leave empty for auto)">
+                </div>
+              </div>
+
+              <!-- Descriptions -->
+              <div class="field-group">
+                <label class="field-label" for="qp-desc">
+                  Short Description <span class="field-required">*</span>
+                </label>
+                <textarea id="qp-desc" class="field-textarea"
+                  rows="2" required></textarea>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="qp-longdesc">
+                  Long Description
+                </label>
+                <textarea id="qp-longdesc" class="field-textarea"
+                  rows="4"></textarea>
+              </div>
+
+              <!-- Tags -->
+              <div class="field-group">
+                <label class="field-label">Tags</label>
+                <div class="tags-input-wrap" id="qp-tags-wrap">
+                  <input class="tags-type-input" id="qp-tags-input"
+                    type="text" placeholder="Add tag and press Enter">
+                </div>
+              </div>
+
+              <!-- Links -->
+              <div class="form-grid form-grid-2">
+                <div class="field-group">
+                  <label class="field-label" for="qp-repo">Repo URL</label>
+                  <input id="qp-repo" class="field-input" type="url"
+                    placeholder="https://github.com/...">
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="qp-related">
+                    Related Video ID
+                  </label>
+                  <input id="qp-related" class="field-input" type="text"
+                    placeholder="video-001">
+                </div>
+              </div>
+
+              <!-- Live Link -->
+              <div class="form-grid form-grid-2">
+                <div class="field-group">
+                  <label class="field-label">Has Live Link?</label>
+                  <div class="toggle-wrap">
+                    <label class="toggle-switch">
+                      <input type="checkbox" id="qp-has-live">
+                      <span class="toggle-track"></span>
+                    </label>
+                    <span class="toggle-label">Show live button on site</span>
+                  </div>
+                </div>
+                <div class="field-group" id="qp-live-url-group"
+                  style="display:none;">
+                  <label class="field-label" for="qp-live-url">
+                    Live URL
+                  </label>
+                  <input id="qp-live-url" class="field-input" type="url"
+                    placeholder="https://example.com">
+                </div>
+              </div>
+
+              <!-- What I Learned -->
+              <div class="field-group">
+                <label class="field-label">What I Learned</label>
+                <div class="learned-list" id="qp-learned-list"></div>
+                <button type="button" class="add-file-btn"
+                  id="qp-add-learned" style="margin-top:8px;">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                    <path d="M12 5V19M5 12H19"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+                  </svg>
+                  Add Learning Point
+                </button>
+              </div>
+
+              <!-- Actions -->
+              <div class="btn-row">
+                <button type="submit" class="btn btn-primary">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                    <path d="M12 3V15M12 15L8 11M12 15L16 11"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 17V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V17"
+                      stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round"/>
+                  </svg>
+                  Generate &amp; Download JSON
+                </button>
+                <button type="button" class="btn btn-ghost"
+                  id="qp-preview-btn">
+                  Preview JSON
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <!-- JSON PREVIEW (shared) -->
+        <div class="admin-card" id="q-preview-card"
+          style="display:none;margin-top:8px;">
+          <div class="json-preview-toolbar">
+            <span class="json-preview-label">Generated JSON</span>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" id="q-copy-json">
+                Copy JSON
+              </button>
+              <button class="btn btn-cyan btn-sm" id="q-download-json">
+                Download
+              </button>
+            </div>
+          </div>
+          <div class="json-preview-code" id="q-json-output"></div>
+          <div style="padding:16px;border-top:1px solid var(--line);">
+            <p style="
+              font-size:0.78rem;
+              color:var(--text-3);
+              font-family:monospace;
+              white-space:pre-line;
+              margin:0;
+            " id="q-placement-hint"></p>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/json-generator.js"></script>
+  <script src="assets/js/form-handler.js"></script>
+  <script src="assets/js/quick-form.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.CoderAnimeAuth.guardPage();
+      window.CoderAnimeAuth.initLogout();
+      window.CoderAnimeQuickForm.init();
+    });
+  </script>
+</body>
+</html>

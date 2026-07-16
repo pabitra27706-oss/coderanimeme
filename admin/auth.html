@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | CoderAnimeMe</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body class="auth-page">
+
+  <div class="auth-wrap">
+
+    <div class="auth-card">
+
+      <div class="auth-logo">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+            stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <h1 class="auth-title">Admin Panel</h1>
+      <p class="auth-subtitle">CoderAnimeMe Content Manager</p>
+
+      <form class="auth-form" data-login-form autocomplete="off">
+
+        <div class="field-group">
+          <label class="field-label" for="password">Password</label>
+          <div class="password-wrap">
+            <input
+              id="password"
+              class="field-input"
+              type="password"
+              placeholder="Enter admin password"
+              data-password-input
+              autocomplete="current-password"
+              required
+            >
+            <button
+              type="button"
+              class="toggle-pw-btn"
+              data-toggle-password
+              aria-label="Toggle password visibility"
+            >Show</button>
+          </div>
+        </div>
+
+        <p class="login-error" data-login-error style="display:none;"></p>
+
+        <button type="submit" class="auth-submit-btn" data-login-submit>
+          Enter Admin
+        </button>
+
+      </form>
+
+      <p class="auth-note">
+        This panel is for content management only.
+        Access is restricted to the site owner.
+      </p>
+
+    </div>
+
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      window.CoderAnimeAuth.initLoginForm();
+    });
+  </script>
+</body>
+</html>

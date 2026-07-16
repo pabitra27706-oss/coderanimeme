@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | CoderAnimeMe Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <div class="admin-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sidebar-logo-text">CoderAnimeMe</div>
+          <div class="sidebar-logo-sub">Admin Panel v2.0</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-label">Navigation</div>
+
+        <a href="index.html" class="sidebar-link active">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Dashboard
+        </a>
+
+        <div class="sidebar-label">Create Content</div>
+
+        <a href="create-manual.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 5V19M5 12H19"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+          </svg>
+          Manual Form
+        </a>
+
+        <a href="create-quick.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Quick Add
+        </a>
+
+        <div class="sidebar-label">Site</div>
+
+        <a href="../index.html" class="sidebar-link" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M18 13V19C18 20.1046 17.1046 21 16 21H5C3.89543 21 3 20.1046 3 19V8C3 6.89543 3.89543 6 5 6H11"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+            <path d="M15 3H21V9M21 3L9 15"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          View Site
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" data-logout>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 17L21 12L16 7M21 12H9"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="admin-main">
+
+      <div class="page-header">
+        <div class="page-header-inner">
+          <div>
+            <div class="page-kicker">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+                <path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Overview
+            </div>
+            <h1 class="page-title">Dashboard</h1>
+            <p class="page-subtitle">
+              Manage your videos, projects, and content registry.
+            </p>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-ghost btn-sm" data-export-backup>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                <path d="M12 3V15M12 15L8 11M12 15L16 11"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 17V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V17"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Export Backup
+            </button>
+            <label class="btn btn-ghost btn-sm" style="cursor:pointer;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                <path d="M12 21V9M12 9L8 13M12 9L16 13"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 17V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V17"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Import Backup
+              <input type="file" accept=".json" data-import-backup
+                style="display:none;">
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="stats-grid" data-stats-grid>
+        <div class="stat-card">
+          <div class="stat-number" data-stat-videos>0</div>
+          <div class="stat-label">Videos Created</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-stat-projects>0</div>
+          <div class="stat-label">Projects Created</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-stat-next-video>—</div>
+          <div class="stat-label">Next Video ID</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-stat-next-project>—</div>
+          <div class="stat-label">Next Project ID</div>
+        </div>
+      </div>
+
+      <!-- QUICK ACTIONS -->
+      <div class="admin-card" style="margin-bottom:24px;">
+        <div class="admin-card-title">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Quick Actions
+        </div>
+        <div class="btn-row">
+          <a href="create-manual.html?type=video" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M12 5V19M5 12H19"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            New Video (Manual)
+          </a>
+          <a href="create-manual.html?type=project" class="btn btn-cyan">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M12 5V19M5 12H19"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            New Project (Manual)
+          </a>
+          <a href="create-quick.html?type=video" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Quick Add Video
+          </a>
+          <a href="create-quick.html?type=project" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Quick Add Project
+          </a>
+        </div>
+      </div>
+
+      <!-- FOLDER STRUCTURE GUIDE -->
+      <div class="admin-card" style="margin-bottom:24px;">
+        <div class="admin-card-title">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 7C3 5.89543 3.89543 5 5 5H9.58579C9.851 5 10.1054 5.10536 10.2929 5.29289L11.7071 6.70711C11.8946 6.89464 12.149 7 12.4142 7H19C20.1046 7 21 7.89543 21 9V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V7Z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linejoin="round"/>
+          </svg>
+          File Placement Guide
+        </div>
+        <div class="alert alert-info" style="margin-bottom:16px;">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9"
+              stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 8V12M12 16H12.01"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+          </svg>
+          After generating JSON, place your files in the correct folders below.
+        </div>
+        <pre style="
+          font-family: monospace;
+          font-size: 0.82rem;
+          color: var(--text-2);
+          line-height: 1.8;
+          background: rgba(0,0,0,0.2);
+          padding: 16px;
+          border-radius: 12px;
+          overflow-x: auto;
+        ">assets/
+├── code/
+│   └── video/
+│       ├── video-001/
+│       │   └── main.py
+│       ├── video-002/
+│       │   └── rainbow_flower.py
+│       └── video-003/         ← your next video
+│           └── your_file.py
+├── data/
+│   ├── videos/
+│   │   └── video-003.json     ← generated JSON goes here
+│   └── projects/
+│       └── project-001.json
+└── images/
+    └── videos/
+        └── video-003/         ← optional thumbnail
+            └── thumb.jpg</pre>
+      </div>
+
+      <!-- VIDEO LIST -->
+      <div class="admin-card" style="margin-bottom:24px;">
+        <div class="admin-card-title">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M22.54 6.42A2.78 2.78 0 0 0 20.58 4.46C18.88 4 12 4 12 4S5.12 4 3.42 4.46A2.78 2.78 0 0 0 1.46 6.42A29 29 0 0 0 1 12A29 29 0 0 0 1.46 17.58A2.78 2.78 0 0 0 3.42 19.54C5.12 20 12 20 12 20S18.88 20 20.58 19.54A2.78 2.78 0 0 0 22.54 17.58A29 29 0 0 0 23 12A29 29 0 0 0 22.54 6.42Z"
+              stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M10 15L16 12L10 9V15Z"
+              stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+          Videos Registry
+        </div>
+        <div class="content-list" data-video-list>
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M22.54 6.42A2.78 2.78 0 0 0 20.58 4.46C18.88 4 12 4 12 4S5.12 4 3.42 4.46A2.78 2.78 0 0 0 1.46 6.42A29 29 0 0 0 1 12A29 29 0 0 0 1.46 17.58A2.78 2.78 0 0 0 3.42 19.54C5.12 20 12 20 12 20S18.88 20 20.58 19.54A2.78 2.78 0 0 0 22.54 17.58A29 29 0 0 0 23 12A29 29 0 0 0 22.54 6.42Z"
+                stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+            <p>No videos created yet. Use Manual Form or Quick Add to start.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT LIST -->
+      <div class="admin-card">
+        <div class="admin-card-title">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Projects Registry
+        </div>
+        <div class="content-list" data-project-list>
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p>No projects created yet. Use Manual Form or Quick Add to start.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script>
+    (function () {
+
+      /* guard — redirect if not logged in */
+      window.CoderAnimeAuth.guardPage();
+
+      /* logout */
+      window.CoderAnimeAuth.initLogout();
+
+      /* -----------------------------------------------
+         RENDER STATS
+         ----------------------------------------------- */
+      function renderStats() {
+        const stats = window.CoderAnimeStorage.getStats();
+
+        const el = (sel) => document.querySelector(sel);
+
+        el("[data-stat-videos]").textContent    = stats.totalVideos;
+        el("[data-stat-projects]").textContent  = stats.totalProjects;
+        el("[data-stat-next-video]").textContent =
+          stats.nextVideoId.replace("video-", "#");
+        el("[data-stat-next-project]").textContent =
+          stats.nextProjectId.replace("project-", "#");
+      }
+
+      /* -----------------------------------------------
+         RENDER VIDEO LIST
+         ----------------------------------------------- */
+      function renderVideoList() {
+        const wrap  = document.querySelector("[data-video-list]");
+        const items = window.CoderAnimeStorage.getVideos();
+
+        if (!items.length) {
+          wrap.innerHTML = `
+            <div class="empty-state">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M22.54 6.42A2.78 2.78 0 0 0 20.58 4.46C18.88 4 12 4 12 4S5.12 4 3.42 4.46A2.78 2.78 0 0 0 1.46 6.42A29 29 0 0 0 1 12A29 29 0 0 0 1.46 17.58A2.78 2.78 0 0 0 3.42 19.54C5.12 20 12 20 12 20S18.88 20 20.58 19.54A2.78 2.78 0 0 0 22.54 17.58A29 29 0 0 0 23 12A29 29 0 0 0 22.54 6.42Z"
+                  stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              </svg>
+              <p>No videos created yet.</p>
+            </div>
+          `;
+          return;
+        }
+
+        wrap.innerHTML = items.map((v) => `
+          <div class="content-item">
+            <div class="content-item-icon type-video">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 6.5V17.5L17 12L8 6.5Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="content-item-info">
+              <div class="content-item-title">${v.title || v.id}</div>
+              <div class="content-item-meta">
+                ${v.id} · ${v.category || "tutorial"} · ${v.datePublished || "no date"}
+              </div>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm"
+                data-delete-video="${v.id}">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none">
+                  <path d="M3 6H5H21M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M19 6L18.1327 19.1425C18.0579 20.1891 17.187 21 16.1378 21H7.86224C6.81296 21 5.94208 20.1891 5.86732 19.1425L5 6"
+                    stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Delete
+              </button>
+            </div>
+          </div>
+        `).join("");
+
+        /* bind delete buttons */
+        wrap.querySelectorAll("[data-delete-video]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-delete-video");
+            if (confirm(`Delete video "${id}" from registry?`)) {
+              window.CoderAnimeStorage.deleteVideo(id);
+              renderAll();
+            }
+          });
+        });
+      }
+
+      /* -----------------------------------------------
+         RENDER PROJECT LIST
+         ----------------------------------------------- */
+      function renderProjectList() {
+        const wrap  = document.querySelector("[data-project-list]");
+        const items = window.CoderAnimeStorage.getProjects();
+
+        if (!items.length) {
+          wrap.innerHTML = `
+            <div class="empty-state">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p>No projects created yet.</p>
+            </div>
+          `;
+          return;
+        }
+
+        wrap.innerHTML = items.map((p) => `
+          <div class="content-item">
+            <div class="content-item-icon type-project">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="content-item-info">
+              <div class="content-item-title">${p.title || p.id}</div>
+              <div class="content-item-meta">
+                ${p.id} · ${p.category || "python"} · ${p.status || "coming-soon"}
+              </div>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm"
+                data-delete-project="${p.id}">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none">
+                  <path d="M3 6H5H21M8 6V4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V6M19 6L18.1327 19.1425C18.0579 20.1891 17.187 21 16.1378 21H7.86224C6.81296 21 5.94208 20.1891 5.86732 19.1425L5 6"
+                    stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Delete
+              </button>
+            </div>
+          </div>
+        `).join("");
+
+        /* bind delete buttons */
+        wrap.querySelectorAll("[data-delete-project]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-delete-project");
+            if (confirm(`Delete project "${id}" from registry?`)) {
+              window.CoderAnimeStorage.deleteProject(id);
+              renderAll();
+            }
+          });
+        });
+      }
+
+      /* -----------------------------------------------
+         RENDER ALL
+         ----------------------------------------------- */
+      function renderAll() {
+        renderStats();
+        renderVideoList();
+        renderProjectList();
+      }
+
+      /* -----------------------------------------------
+         EXPORT BACKUP BUTTON
+         ----------------------------------------------- */
+      document.querySelector("[data-export-backup]")
+        .addEventListener("click", () => {
+          window.CoderAnimeStorage.exportBackup();
+        });
+
+      /* -----------------------------------------------
+         IMPORT BACKUP
+         ----------------------------------------------- */
+      document.querySelector("[data-import-backup]")
+        .addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            const result = window.CoderAnimeStorage.importBackup(ev.target.result);
+            if (result.success) {
+              renderAll();
+              alert(result.message);
+            } else {
+              alert("Import failed: " + result.message);
+            }
+          };
+          reader.readAsText(file);
+          e.target.value = "";
+        });
+
+      /* init */
+      renderAll();
+    })();
+  </script>
+</body>
+</html>

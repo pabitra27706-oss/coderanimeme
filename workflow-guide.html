@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Workflow Guide | CoderAnimeMe</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-1: #080b12;
+      --bg-2: #0d1320;
+      --surface: rgba(18, 25, 40, 0.80);
+      --surface-lite: rgba(255, 255, 255, 0.04);
+      --text-1: #f5f7ff;
+      --text-2: #b7c0d8;
+      --text-3: #7f8cad;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.15);
+      --pink: #ff4d6d;
+      --cyan: #00c2ff;
+      --green: #31d0aa;
+      --amber: #ffb84d;
+      --purple: #7c5cff;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-1: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg-1);
+      color: var(--text-1);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255,77,109,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(0,194,255,0.08), transparent 30%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px;
+      border-radius: 18px;
+      background: linear-gradient(135deg,
+        rgba(255,77,109,0.2),
+        rgba(0,194,255,0.2));
+      border: 1px solid var(--line-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--pink), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      color: var(--text-3);
+      font-size: 1rem;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(16px);
+    }
+
+    .nav h3 {
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cyan);
+    }
+
+    .nav ol {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--text-2);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover {
+      background: var(--surface-lite);
+      border-color: var(--line-strong);
+      color: var(--text-1);
+    }
+
+    .nav .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface-lite);
+      border: 1px solid var(--line-strong);
+      font-size: 0.75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ===== SECTIONS ===== */
+    .step {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-1);
+      scroll-margin-top: 20px;
+    }
+
+    .step-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--pink), var(--cyan));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      color: white;
+    }
+
+    .step h2 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .step-time {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(0,194,255,0.1);
+      border: 1px solid rgba(0,194,255,0.3);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    .step p {
+      color: var(--text-2);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .step ul,
+    .step ol {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .step li {
+      color: var(--text-2);
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+
+    .step li strong {
+      color: var(--text-1);
+    }
+
+    /* ===== CODE BLOCKS ===== */
+    .code-block {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin: 16px 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      color: #e7ecff;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+
+    .code-block pre {
+      margin: 0;
+    }
+
+    /* ===== ALERTS ===== */
+    .alert {
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      margin: 16px 0;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .alert svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-info {
+      background: rgba(0,194,255,0.08);
+      border: 1px solid rgba(0,194,255,0.22);
+      color: var(--cyan);
+    }
+
+    .alert-success {
+      background: rgba(49,208,170,0.08);
+      border: 1px solid rgba(49,208,170,0.22);
+      color: var(--green);
+    }
+
+    .alert-warning {
+      background: rgba(255,184,77,0.08);
+      border: 1px solid rgba(255,184,77,0.22);
+      color: var(--amber);
+    }
+
+    /* ===== SCREENSHOTS ===== */
+    .screenshot-placeholder {
+      background: linear-gradient(135deg,
+        rgba(255,77,109,0.1),
+        rgba(0,194,255,0.1));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-3);
+      font-size: 0.85rem;
+      margin: 16px 0;
+    }
+
+    .screenshot-placeholder svg {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 12px;
+      opacity: 0.4;
+    }
+
+    /* ===== FILE TREE ===== */
+    .file-tree {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      color: var(--text-2);
+      line-height: 1.8;
+      margin: 16px 0;
+    }
+
+    /* ===== CHECKLIST ===== */
+    .checklist {
+      list-style: none;
+      margin-left: 0 !important;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+    }
+
+    .checklist li::before {
+      content: "☐";
+      font-size: 1.2rem;
+      color: var(--cyan);
+      line-height: 1.5;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 60px;
+      border-top: 1px solid var(--line);
+      color: var(--text-3);
+      font-size: 0.85rem;
+    }
+
+    .footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      body {
+        padding: 20px 16px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .step {
+        padding: 20px;
+      }
+
+      .step h2 {
+        font-size: 1.2rem;
+      }
+
+      .step-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+            stroke="currentColor" stroke="white" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1>Video Workflow Guide</h1>
+      <p class="subtitle">
+        Complete step-by-step process to add a new video to CoderAnimeMe
+      </p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+      <h3>Quick Navigation</h3>
+      <ol>
+        <li>
+          <a href="#step1">
+            <span class="step-num">1</span>
+            Code Your Project
+          </a>
+        </li>
+        <li>
+          <a href="#step2">
+            <span class="step-num">2</span>
+            Test Your Code
+          </a>
+        </li>
+        <li>
+          <a href="#step3">
+            <span class="step-num">3</span>
+            Generate AI Input JSON
+          </a>
+        </li>
+        <li>
+          <a href="#step4">
+            <span class="step-num">4</span>
+            Login to Admin Panel
+          </a>
+        </li>
+        <li>
+          <a href="#step5">
+            <span class="step-num">5</span>
+            Choose Your Method
+          </a>
+        </li>
+        <li>
+          <a href="#step6">
+            <span class="step-num">6</span>
+            Place Files in Folders
+          </a>
+        </li>
+        <li>
+          <a href="#step7">
+            <span class="step-num">7</span>
+            Update Index Registry
+          </a>
+        </li>
+        <li>
+          <a href="#step8">
+            <span class="step-num">8</span>
+            Test Locally
+          </a>
+        </li>
+        <li>
+          <a href="#step9">
+            <span class="step-num">9</span>
+            Deploy to GitHub Pages
+          </a>
+        </li>
+        <li>
+          <a href="#step10">
+            <span class="step-num">10</span>
+            Final Checklist
+          </a>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- STEP 1 -->
+    <section class="step" id="step1">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <div>
+          <h2>Code Your Project</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            30-60 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Write your Python project, tutorial code, or creative coding experiment.
+        This is where your content begins.
+      </p>
+
+      <div class="alert alert-info">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 8V12M12 16H12.01" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <strong>Best Practices:</strong> Keep your code clean, well-commented,
+          and beginner-friendly. Think about what someone learning from your
+          tutorial would need to understand.
+        </div>
+      </div>
+
+      <p><strong>Example:</strong> Let's say you're creating a Python Turtle Snake Game.</p>
+
+      <div class="code-block">
+<pre>import turtle
+import time
+import random
+
+# Screen setup
+screen = turtle.Screen()
+screen.title("Snake Game Tutorial")
+screen.bgcolor("black")
+screen.setup(width=600, height=600)
+
+# Snake head
+head = turtle.Turtle()
+head.shape("square")
+head.color("lime")
+head.penup()
+head.goto(0, 0)
+
+# Game loop
+while True:
+    screen.update()
+    time.sleep(0.1)
+    head.forward(20)</pre>
+      </div>
+
+      <p><strong>What to prepare:</strong></p>
+      <ul>
+        <li>One or more <code>.py</code> files</li>
+        <li>Clear variable names and comments</li>
+        <li>Working, tested code</li>
+        <li>Optional: README explaining the code</li>
+      </ul>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="step" id="step2">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <div>
+          <h2>Test Your Code</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            10-15 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Before recording your tutorial or publishing, make sure the code runs
+        perfectly from start to finish.
+      </p>
+
+      <div class="alert alert-warning">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 19.5H22L12 2Z" stroke="currentColor"
+            stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M12 9V13M12 17H12.01" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div>
+          Test on a <strong>fresh Python environment</strong> if possible.
+          Sometimes code works on your machine but fails for others due to
+          missing imports or environment differences.
+        </div>
+      </div>
+
+      <p><strong>Testing checklist:</strong></p>
+      <ul class="checklist">
+        <li>Code runs without errors</li>
+        <li>All imports are standard library or clearly documented</li>
+        <li>No hardcoded paths (like <code>C:\Users\YourName\...</code>)</li>
+        <li>Output matches your expectations</li>
+        <li>Code is beginner-friendly (if that's your audience)</li>
+      </ul>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="step" id="step3">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <div>
+          <h2>Generate AI Input JSON</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            5 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Use an AI assistant (ChatGPT, Claude, etc.) to generate a structured
+        input JSON based on your project. This saves you from typing everything
+        manually.
+      </p>
+
+      <p><strong>Copy this prompt and paste to your AI:</strong></p>
+
+      <div class="code-block">
+<pre>Generate an admin input JSON for my YouTube coding tutorial website.
+
+I made a Python turtle project called "Snake Game Tutorial".
+
+Return ONLY this JSON structure (no extra text):
+
+{
+  "title": "Snake Game - Python Turtle Tutorial",
+  "description": "one sentence summary",
+  "longDescription": "2-3 sentence detailed explanation",
+  "category": "tutorial",
+  "duration": "MM:SS",
+  "youtubeUrl": "https://youtube.com/watch?v=...",
+  "sourceRepo": "https://github.com/username/repo",
+  "tags": ["python", "turtle", "game", "beginner"],
+  "files": [
+    {
+      "filename": "snake.py",
+      "language": "python"
+    }
+  ]
+}</pre>
+      </div>
+
+      <p><strong>What to tell the AI:</strong></p>
+      <ul>
+        <li>Your project title</li>
+        <li>What the code does (1-2 sentences)</li>
+        <li>How many Python files you have</li>
+        <li>The difficulty level (beginner/intermediate)</li>
+      </ul>
+
+      <div class="alert alert-success">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          The AI will output a clean JSON. <strong>Copy the entire JSON block</strong>
+          — you'll paste it into the admin panel in the next step.
+        </div>
+      </div>
+
+      <p><strong>Example AI output:</strong></p>
+
+      <div class="code-block">
+<pre>{
+  "title": "Snake Game - Python Turtle Tutorial",
+  "description": "Build a classic snake game using Python turtle graphics.",
+  "longDescription": "Learn game development basics by creating a snake game. Covers movement, collision detection, score tracking, and game loop logic using Python's turtle module.",
+  "category": "tutorial",
+  "duration": "18:45",
+  "youtubeUrl": "https://youtube.com/watch?v=YOUR_VIDEO_ID",
+  "sourceRepo": "https://github.com/yourusername/snake-game",
+  "tags": ["python", "turtle", "game", "beginner", "tutorial"],
+  "files": [
+    {
+      "filename": "snake.py",
+      "language": "python"
+    },
+    {
+      "filename": "food.py",
+      "language": "python"
+    }
+  ]
+}</pre>
+      </div>
+
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="step" id="step4">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <div>
+          <h2>Login to Admin Panel</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            1 minute
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Open your admin panel and log in. The session persists, so you only
+        need to log in once until you click Logout.
+      </p>
+
+      <p><strong>Admin URL:</strong></p>
+      <div class="code-block">
+<pre>http://localhost:8000/admin/auth.html
+
+OR (if deployed):
+
+https://yourusername.github.io/yoursite/admin/auth.html</pre>
+      </div>
+
+      <div class="screenshot-placeholder">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="2"
+            stroke="currentColor" stroke-width="1.8"/>
+          <path d="M9 3V21M15 3V21M3 9H21M3 15H21"
+            stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        <p>Admin login page screenshot would go here</p>
+      </div>
+
+      <p><strong>Login credentials:</strong></p>
+      <ul>
+        <li>Password: <code>India00@</code> or <code>India00@@</code></li>
+        <li>Click <strong>Enter Admin</strong></li>
+        <li>You'll be redirected to the Dashboard</li>
+      </ul>
+
+      <div class="alert alert-info">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 8V12M12 16H12.01" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div>
+          Your login is saved in <code>localStorage</code>. You stay logged in
+          even after closing the browser until you click the Logout button.
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="step" id="step5">
+      <div class="step-header">
+        <div class="step-number">5</div>
+        <div>
+          <h2>Choose Your Method</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            5-10 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        You have two ways to create the final JSON file. Both produce the same
+        result — choose based on your preference.
+      </p>
+
+      <h3 style="margin-top:24px;margin-bottom:12px;font-size:1.1rem;color:var(--cyan);">
+        Option A: Quick Add (Recommended)
+      </h3>
+
+      <p>
+        Perfect when you have the AI-generated JSON from Step 3. The form
+        auto-fills, then you can edit before downloading.
+      </p>
+
+      <ol>
+        <li>Click <strong>Quick Add</strong> in the sidebar</li>
+        <li>Make sure <strong>Video JSON</strong> tab is selected</li>
+        <li>Paste your AI-generated JSON into the text area</li>
+        <li>Click <strong>Parse &amp; Fill Form</strong></li>
+        <li>Review the auto-filled form (all fields are editable)</li>
+        <li>Edit the auto-suggested Video ID if needed (e.g., <code>video-003</code>)</li>
+        <li>Add YouTube URL, duration, thumbnail filename if you have them</li>
+        <li>Click <strong>Generate &amp; Download JSON</strong></li>
+      </ol>
+
+      <div class="screenshot-placeholder">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="2"
+            stroke="currentColor" stroke-width="1.8"/>
+          <path d="M9 3V21M15 3V21M3 9H21M3 15H21"
+            stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        <p>Quick Add paste area screenshot</p>
+      </div>
+
+      <h3 style="margin-top:24px;margin-bottom:12px;font-size:1.1rem;color:var(--pink);">
+        Option B: Manual Form
+      </h3>
+
+      <p>
+        Full control over every field. Good when you don't have AI-generated
+        JSON or prefer typing everything yourself.
+      </p>
+
+      <ol>
+        <li>Click <strong>Manual Form</strong> in the sidebar</li>
+        <li>Select <strong>Video JSON</strong> tab</li>
+        <li>Click <strong>Suggest Next ID</strong> to auto-fill the ID field</li>
+        <li>Fill in all fields manually</li>
+        <li>Add tags (press Enter or comma after each tag)</li>
+        <li>Add file entries (click <strong>Add File</strong> for multiple files)</li>
+        <li>Toggle <strong>Has Live Link</strong> if you have a live demo</li>
+        <li>Click <strong>Generate &amp; Download JSON</strong></li>
+      </ol>
+
+      <div class="alert alert-success">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          After clicking Generate, a file named <code>video-003.json</code>
+          (or your ID) will download to your computer. You'll also see a
+          preview and a placement guide showing where to put files.
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 6 -->
+    <section class="step" id="step6">
+      <div class="step-header">
+        <div class="step-number">6</div>
+        <div>
+          <h2>Place Files in Folders</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            5 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Now that you have the generated JSON file, place it and your code files
+        in the correct folders following this structure.
+      </p>
+
+      <div class="alert alert-info">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 8V12M12 16H12.01" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div>
+          The admin panel shows you a <strong>placement hint</strong> after
+          generating JSON. Follow that guide exactly.
+        </div>
+      </div>
+
+      <p><strong>Example for video-003:</strong></p>
+
+      <div class="file-tree">
+assets/
+├── data/
+│   └── videos/
+│       └── video-003.json          ← Generated JSON goes here
+│
+├── code/
+│   └── video/
+│       └── video-003/              ← Create this folder
+│           ├── snake.py            ← Your Python file(s)
+│           └── food.py
+│
+└── images/
+    └── videos/
+        └── video-003/              ← Optional: create if you have thumbnail
+            └── thumbnail.jpg
+      </div>
+
+      <p><strong>Step-by-step file placement:</strong></p>
+
+      <ol>
+        <li>
+          <strong>JSON file:</strong><br>
+          Move <code>video-003.json</code> to
+          <code>assets/data/videos/</code>
+        </li>
+        <li>
+          <strong>Create code folder:</strong><br>
+          Create folder <code>assets/code/video/video-003/</code>
+        </li>
+        <li>
+          <strong>Add Python files:</strong><br>
+          Move <code>snake.py</code> and <code>food.py</code> into
+          <code>assets/code/video/video-003/</code>
+        </li>
+        <li>
+          <strong>Optional thumbnail:</strong><br>
+          If you have a custom thumbnail, create
+          <code>assets/images/videos/video-003/</code><br>
+          and place <code>thumbnail.jpg</code> there.<br>
+          <em>(If you skip this, an auto-generated thumbnail will be used)</em>
+        </li>
+      </ol>
+
+      <div class="alert alert-warning">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 19.5H22L12 2Z" stroke="currentColor"
+            stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M12 9V13M12 17H12.01" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <strong>File names must match exactly</strong> what you entered in
+          the admin form. If the JSON says <code>snake.py</code>, don't name
+          it <code>Snake.py</code> or <code>snake_game.py</code>.
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 7 -->
+    <section class="step" id="step7">
+      <div class="step-header">
+        <div class="step-number">7</div>
+        <div>
+          <h2>Update Index Registry</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            2 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        The website needs to know your new video exists. Add it to the master
+        index file so it appears on the site.
+      </p>
+
+      <p><strong>Open this file:</strong></p>
+      <div class="code-block">
+<pre>assets/data/index.json</pre>
+      </div>
+
+      <p><strong>Add your video entry to the <code>videos</code> array:</strong></p>
+
+      <div class="code-block">
+<pre>{
+  "projects": [
+    ...existing projects...
+  ],
+  "videos": [
+    {
+      "id": "video-001",
+      "file": "assets/data/videos/video-001.json",
+      "featured": true
+    },
+    {
+      "id": "video-002",
+      "file": "assets/data/videos/video-002.json",
+      "featured": false
+    },
+    <strong style="color:#31d0aa;">{
+      "id": "video-003",
+      "file": "assets/data/videos/video-003.json",
+      "featured": true
+    }</strong>
+  ]
+}</pre>
+      </div>
+
+      <p><strong>Field explanations:</strong></p>
+      <ul>
+        <li><code>id</code> — Must match the ID in your video JSON</li>
+        <li><code>file</code> — Path to your JSON file</li>
+        <li>
+          <code>featured</code> — Set to <code>true</code> if you want this
+          video to show on the homepage (max 3 featured videos display)
+        </li>
+      </ul>
+
+      <div class="alert alert-success">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          That's it! Your video is now registered and will appear on the
+          Videos page and (if featured) on the homepage.
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 8 -->
+    <section class="step" id="step8">
+      <div class="step-header">
+        <div class="step-number">8</div>
+        <div>
+          <h2>Test Locally</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            5-10 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Before deploying to GitHub Pages, test everything locally to catch any
+        mistakes.
+      </p>
+
+      <p><strong>Start a local server:</strong></p>
+
+      <div class="code-block">
+<pre># Option 1: Python
+python -m http.server 8000
+
+# Option 2: Node.js
+npx serve
+
+# Option 3: VS Code Live Server extension
+# Right-click index.html → "Open with Live Server"</pre>
+      </div>
+
+      <p><strong>Testing checklist:</strong></p>
+
+      <ul class="checklist">
+        <li>Homepage loads without errors</li>
+        <li>Videos page shows your new video card</li>
+        <li>Clicking the video card opens the detail page</li>
+        <li>Video detail page displays title, description, tags correctly</li>
+        <li>Source code files are shown with syntax highlighting</li>
+        <li>Copy button works for each file</li>
+        <li>Copy All button combines all files correctly</li>
+        <li>Download buttons work (if multiple files, ZIP downloads)</li>
+        <li>Thumbnail shows (custom or auto-generated)</li>
+        <li>No 404 errors in browser console</li>
+      </ul>
+
+      <div class="alert alert-warning">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 19.5H22L12 2Z" stroke="currentColor"
+            stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M12 9V13M12 17H12.01" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <strong>Common mistakes to check:</strong><br>
+          • File paths in JSON match actual file locations<br>
+          • File names are spelled exactly right (case-sensitive)<br>
+          • index.json has correct ID and path<br>
+          • No missing commas in JSON files
+        </div>
+      </div>
+
+      <p><strong>How to check browser console:</strong></p>
+      <ol>
+        <li>Open your site in browser</li>
+        <li>Press <code>F12</code> or right-click → Inspect</li>
+        <li>Click the <strong>Console</strong> tab</li>
+        <li>Look for red errors — fix any that appear</li>
+      </ol>
+    </section>
+
+    <!-- STEP 9 -->
+    <section class="step" id="step9">
+      <div class="step-header">
+        <div class="step-number">9</div>
+        <div>
+          <h2>Deploy to GitHub Pages</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            5 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Once everything works locally, push your changes to GitHub to publish
+        the new video live.
+      </p>
+
+      <p><strong>Git commands:</strong></p>
+
+      <div class="code-block">
+<pre># 1. Check what files changed
+git status
+
+# 2. Add all new/modified files
+git add .
+
+# 3. Commit with a clear message
+git commit -m "Add video-003: Snake Game Tutorial"
+
+# 4. Push to GitHub
+git push origin main</pre>
+      </div>
+
+      <div class="alert alert-info">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M12 8V12M12 16H12.01" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div>
+          GitHub Pages automatically rebuilds your site within 1-2 minutes after
+          you push. Refresh your live site to see the new video.
+        </div>
+      </div>
+
+      <p><strong>Verify deployment:</strong></p>
+      <ol>
+        <li>
+          Go to your GitHub repository → <strong>Actions</strong> tab
+        </li>
+        <li>
+          You should see a workflow running (yellow dot) or completed (green checkmark)
+        </li>
+        <li>
+          Wait 1-2 minutes, then visit your live site:
+          <code>https://yourusername.github.io/yoursite/</code>
+        </li>
+        <li>
+          Navigate to Videos page and verify your new video appears
+        </li>
+      </ol>
+
+      <div class="alert alert-success">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          🎉 <strong>Congratulations!</strong> Your video is now live and
+          accessible to everyone. Share the link on YouTube, social media,
+          or wherever your audience is.
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 10 -->
+    <section class="step" id="step10">
+      <div class="step-header">
+        <div class="step-number">10</div>
+        <div>
+          <h2>Final Checklist</h2>
+          <span class="step-time">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+            5 minutes
+          </span>
+        </div>
+      </div>
+
+      <p>
+        Do a final check of your published video to ensure everything is perfect.
+      </p>
+
+      <h3 style="margin-top:20px;margin-bottom:16px;font-size:1rem;color:var(--cyan);">
+        On the Live Site
+      </h3>
+
+      <ul class="checklist">
+        <li>Video appears in Videos page grid</li>
+        <li>Video card shows correct title, description, tags</li>
+        <li>Thumbnail displays (custom or auto-generated)</li>
+        <li>Clicking card opens correct detail page</li>
+        <li>Detail page URL is <code>video.html?id=video-003</code></li>
+        <li>All metadata is correct (title, description, category, date)</li>
+        <li>Tags are displayed properly</li>
+        <li>YouTube button links to correct video (if URL provided)</li>
+        <li>Source Repo button works (if provided)</li>
+        <li>Live Link button appears only if enabled</li>
+        <li>Code files are syntax highlighted</li>
+        <li>Copy buttons work on each file</li>
+        <li>Copy All button works</li>
+        <li>Download buttons work (single file or ZIP)</li>
+        <li>Mobile responsive (check on phone)</li>
+      </ul>
+
+      <h3 style="margin-top:24px;margin-bottom:16px;font-size:1rem;color:var(--pink);">
+        Next Steps
+      </h3>
+
+      <ul>
+        <li>
+          <strong>Share on YouTube:</strong> Add the video detail page URL
+          in your YouTube video description
+        </li>
+        <li>
+          <strong>Promote:</strong> Share on social media, Reddit,
+          programming communities
+        </li>
+        <li>
+          <strong>Track engagement:</strong> Check GitHub Stars, site visits,
+          code copies
+        </li>
+        <li>
+          <strong>Iterate:</strong> Read feedback, improve future videos based
+          on what works
+        </li>
+      </ul>
+
+      <div class="alert alert-success">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <strong>You're done!</strong> Repeat this workflow for every new
+          video. It gets faster each time — eventually you'll complete the
+          whole process in under 20 minutes.
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>
+        <strong>CoderAnimeMe</strong> — Code. Create. Grow.<br>
+        <a href="https://pabitra27706-oss.github.io/coderanimeme/">Visit Live Site</a> •
+        <a href="https://github.com/pabitra27706-oss">GitHub</a> •
+        <a href="https://youtube.com/@coderanimeme">YouTube</a>
+      </p>
+      <p style="margin-top:12px;font-size:0.75rem;">
+        Save this guide for reference. Bookmark it or print to PDF for offline access.
+      </p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

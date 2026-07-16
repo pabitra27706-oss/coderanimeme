@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Form | CoderAnimeMe Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+  <div class="admin-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="sidebar-logo-text">CoderAnimeMe</div>
+          <div class="sidebar-logo-sub">Admin Panel v2.0</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-label">Navigation</div>
+        <a href="index.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 12L12 3L21 12V21H15V15H9V21H3V12Z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Dashboard
+        </a>
+
+        <div class="sidebar-label">Create Content</div>
+        <a href="create-manual.html" class="sidebar-link active">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 5V19M5 12H19"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+          </svg>
+          Manual Form
+        </a>
+        <a href="create-quick.html" class="sidebar-link">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Quick Add
+        </a>
+
+        <div class="sidebar-label">Site</div>
+        <a href="../index.html" class="sidebar-link" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M18 13V19C18 20.1046 17.1046 21 16 21H5C3.89543 21 3 20.1046 3 19V8C3 6.89543 3.89543 6 5 6H11"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+            <path d="M15 3H21V9M21 3L9 15"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          View Site
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="logout-btn" data-logout>
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H9"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 17L21 12L16 7M21 12H9"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="admin-main">
+
+      <!-- PAGE HEADER -->
+      <div class="page-header">
+        <div class="page-header-inner">
+          <div>
+            <div class="page-kicker">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none">
+                <path d="M12 5V19M5 12H19"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Mode A
+            </div>
+            <h1 class="page-title">Manual Form</h1>
+            <p class="page-subtitle">
+              Fill every field manually to generate a perfect JSON file.
+            </p>
+          </div>
+        </div>
+
+        <!-- TYPE TABS -->
+        <div style="display:flex;gap:8px;margin-top:20px;">
+          <button class="btn btn-primary" data-tab="video" id="tab-video">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M22.54 6.42A2.78 2.78 0 0 0 20.58 4.46C18.88 4 12 4 12 4S5.12 4 3.42 4.46A2.78 2.78 0 0 0 1.46 6.42A29 29 0 0 0 1 12A29 29 0 0 0 1.46 17.58A2.78 2.78 0 0 0 3.42 19.54C5.12 20 12 20 12 20S18.88 20 20.58 19.54A2.78 2.78 0 0 0 22.54 17.58A29 29 0 0 0 23 12A29 29 0 0 0 22.54 6.42Z"
+                stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M10 15L16 12L10 9V15Z"
+                stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            </svg>
+            Video JSON
+          </button>
+          <button class="btn btn-ghost" data-tab="project" id="tab-project">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+              <path d="M8 8L4 12L8 16M16 8L20 12L16 16M14 5L10 19"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Project JSON
+          </button>
+        </div>
+      </div>
+
+      <!-- =============================================
+           VIDEO FORM
+           ============================================= -->
+      <div id="video-form-wrap">
+
+        <form class="form-grid" id="video-form" autocomplete="off">
+
+          <!-- ROW 1: ID + Date -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4L12 2Z"
+                  stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              </svg>
+              Identity
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field-group">
+                <label class="field-label" for="v-id">
+                  Video ID <span class="field-required">*</span>
+                </label>
+                <input id="v-id" class="field-input" type="text"
+                  placeholder="video-003" data-field="id" required>
+                <span class="field-hint">
+                  Format: video-XXX. Auto-suggested below.
+                </span>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="v-date">Date Published</label>
+                <input id="v-date" class="field-input" type="date"
+                  data-field="datePublished">
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <button type="button" class="btn btn-ghost btn-sm"
+                data-suggest-video-id>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
+                  <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                    stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Suggest Next ID
+              </button>
+            </div>
+          </div>
+
+          <!-- ROW 2: Title + Category -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 6H20M4 12H20M4 18H14"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Basic Info
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field-group">
+                <label class="field-label" for="v-title">
+                  Title <span class="field-required">*</span>
+                </label>
+                <input id="v-title" class="field-input" type="text"
+                  placeholder="Rainbow Flower Tutorial"
+                  data-field="title" required>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="v-category">Category</label>
+                <select id="v-category" class="field-select"
+                  data-field="category">
+                  <option value="tutorial">Tutorial</option>
+                  <option value="python">Python</option>
+                  <option value="creative-coding">Creative Coding</option>
+                  <option value="web">Web</option>
+                  <option value="tool">Tool</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid" style="margin-top:16px;">
+              <div class="field-group">
+                <label class="field-label" for="v-desc">
+                  Short Description <span class="field-required">*</span>
+                </label>
+                <textarea id="v-desc" class="field-textarea"
+                  placeholder="One or two sentences describing the video."
+                  data-field="description" rows="2" required></textarea>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="v-longdesc">
+                  Long Description
+                </label>
+                <textarea id="v-longdesc" class="field-textarea"
+                  placeholder="Detailed explanation shown on the video detail page."
+                  data-field="longDescription" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 3: Tags -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20.59 13.41L13.42 20.58C13.2343 20.766 13.0137 20.9135 12.7709 21.0141C12.5281 21.1148 12.2678 21.1666 12.005 21.1666C11.7422 21.1666 11.4819 21.1148 11.2391 21.0141C10.9963 20.9135 10.7757 20.766 10.59 20.58L2 12V2H12L20.59 10.59C20.9625 10.9647 21.1716 11.4716 21.1716 12C21.1716 12.5284 20.9625 13.0353 20.59 13.41Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 7H7.01"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round"/>
+              </svg>
+              Tags
+            </div>
+            <div class="field-group">
+              <label class="field-label">
+                Tags
+                <span class="field-hint" style="margin-left:6px;">
+                  Press Enter or comma to add
+                </span>
+              </label>
+              <div class="tags-input-wrap" id="v-tags-wrap">
+                <input class="tags-type-input" id="v-tags-input"
+                  type="text" placeholder="python, turtle, animation...">
+              </div>
+              <div id="v-tags-hidden"></div>
+            </div>
+          </div>
+
+          <!-- ROW 4: YouTube + Repo -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M10 13C10.4295 13.5741 10.9774 14.0492 11.6066 14.3929C12.2357 14.7367 12.9315 14.9411 13.6467 14.9923C14.3618 15.0435 15.0796 14.9403 15.7513 14.6897C16.4231 14.4392 17.0331 14.047 17.54 13.54L20.54 10.54C21.4508 9.59699 21.9548 8.33397 21.9434 7.02299C21.932 5.71201 21.4061 4.45794 20.4791 3.53087C19.5521 2.6038 18.298 2.07799 16.987 2.0666C15.676 2.0552 14.413 2.55918 13.47 3.46997L11.75 5.17997"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 11C13.5705 10.4259 13.0226 9.95083 12.3934 9.60707C11.7642 9.26331 11.0684 9.05889 10.3533 9.00768C9.63816 8.95646 8.92037 9.05964 8.24861 9.3102C7.57685 9.56077 6.96684 9.9529 6.45996 10.46L3.45996 13.46C2.54917 14.403 2.04519 15.666 2.05659 16.977C2.06798 18.288 2.5938 19.5421 3.52088 20.4691C4.44796 21.3962 5.70204 21.922 7.01302 21.9334C8.32400 21.9448 9.58701 21.4408 10.53 20.53L12.24 18.82"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Links
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field-group">
+                <label class="field-label" for="v-yt-url">YouTube URL</label>
+                <input id="v-yt-url" class="field-input" type="url"
+                  placeholder="https://youtube.com/watch?v=..."
+                  data-field="youtubeUrl">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="v-yt-id">YouTube Video ID</label>
+                <input id="v-yt-id" class="field-input" type="text"
+                  placeholder="dQw4w9WgXcQ (optional)"
+                  data-field="youtubeId">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="v-repo">Source Repo URL</label>
+                <input id="v-repo" class="field-input" type="url"
+                  placeholder="https://github.com/user/repo"
+                  data-field="sourceRepo">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="v-duration">Duration</label>
+                <input id="v-duration" class="field-input" type="text"
+                  placeholder="08:30" data-field="duration">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="v-related">
+                  Related Project ID
+                </label>
+                <input id="v-related" class="field-input" type="text"
+                  placeholder="project-001" data-field="relatedProject">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="v-thumb">
+                  Thumbnail Filename
+                </label>
+                <input id="v-thumb" class="field-input" type="text"
+                  placeholder="thumb.jpg (leave empty for auto)"
+                  data-field="thumbnail">
+                <span class="field-hint">
+                  Will resolve to: assets/images/videos/video-XXX/thumb.jpg
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 5: Live Link -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9"
+                  stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 3C12 3 8 7 8 12C8 17 12 21 12 21M12 3C12 3 16 7 16 12C16 17 12 21 12 21M3 12H21"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Live Link
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field-group">
+                <label class="field-label">Has Live Link?</label>
+                <div class="toggle-wrap">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="v-has-live"
+                      data-field="hasLiveLink">
+                    <span class="toggle-track"></span>
+                  </label>
+                  <span class="toggle-label">
+                    Show live link button on site
+                  </span>
+                </div>
+              </div>
+              <div class="field-group" id="v-live-url-group"
+                style="display:none;">
+                <label class="field-label" for="v-live-url">Live URL</label>
+                <input id="v-live-url" class="field-input" type="url"
+                  placeholder="https://example.com"
+                  data-field="liveLink">
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 6: Files -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 4C4 2.89543 4.89543 2 6 2H14L20 8V20C20 21.1046 19.1046 22 18 22H6C4.89543 22 4 21.1046 4 20V4Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linejoin="round"/>
+                <path d="M14 2V8H20"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linejoin="round"/>
+              </svg>
+              Source Files
+            </div>
+
+            <div class="alert alert-info" style="margin-bottom:16px;">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9"
+                  stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 8V12M12 16H12.01"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              File paths are auto-generated as:
+              assets/code/video/VIDEO-ID/filename
+            </div>
+
+            <div class="files-list" id="v-files-list"></div>
+
+            <button type="button" class="add-file-btn" id="v-add-file">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                <path d="M12 5V19M5 12H19"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Add File
+            </button>
+          </div>
+
+          <!-- GENERATE -->
+          <div class="btn-row" style="padding-bottom:8px;">
+            <button type="submit" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                <path d="M12 3V15M12 15L8 11M12 15L16 11"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 17V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V17"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Generate &amp; Download JSON
+            </button>
+            <button type="button" class="btn btn-ghost"
+              id="v-preview-btn">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3"
+                  stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Preview JSON
+            </button>
+            <button type="button" class="btn btn-ghost"
+              id="v-reset-btn">
+              Reset Form
+            </button>
+          </div>
+
+        </form>
+
+        <!-- JSON PREVIEW -->
+        <div class="admin-card" id="v-preview-card"
+          style="display:none;margin-top:20px;">
+          <div class="json-preview-toolbar">
+            <span class="json-preview-label">Generated JSON</span>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" id="v-copy-json">
+                Copy JSON
+              </button>
+              <button class="btn btn-cyan btn-sm" id="v-download-json">
+                Download
+              </button>
+            </div>
+          </div>
+          <div class="json-preview-code" id="v-json-output"></div>
+          <div style="padding:16px;border-top:1px solid var(--line);">
+            <p style="font-size:0.78rem;color:var(--text-3);
+              font-family:monospace;white-space:pre-line;margin:0;"
+              id="v-placement-hint"></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- =============================================
+           PROJECT FORM
+           ============================================= -->
+      <div id="project-form-wrap" style="display:none;">
+
+        <form class="form-grid" id="project-form" autocomplete="off">
+
+          <!-- ROW 1: ID + Date -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L14.6 9.4L22 12L14.6 14.6L12 22L9.4 14.6L2 12L9.4 9.4L12 2Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linejoin="round"/>
+              </svg>
+              Identity
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field-group">
+                <label class="field-label" for="p-id">
+                  Project ID <span class="field-required">*</span>
+                </label>
+                <input id="p-id" class="field-input" type="text"
+                  placeholder="project-003" data-field="id" required>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="p-date">Date Created</label>
+                <input id="p-date" class="field-input" type="date"
+                  data-field="dateCreated">
+              </div>
+            </div>
+            <div style="margin-top:14px;">
+              <button type="button" class="btn btn-ghost btn-sm"
+                data-suggest-project-id>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
+                  <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
+                    stroke="currentColor" stroke-width="1.8"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Suggest Next ID
+              </button>
+            </div>
+          </div>
+
+          <!-- ROW 2: Title + Category + Status -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 6H20M4 12H20M4 18H14"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Basic Info
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field-group">
+                <label class="field-label" for="p-title">
+                  Title <span class="field-required">*</span>
+                </label>
+                <input id="p-title" class="field-input" type="text"
+                  placeholder="Python Task Manager"
+                  data-field="title" required>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="p-category">Category</label>
+                <select id="p-category" class="field-select"
+                  data-field="category">
+                  <option value="python">Python</option>
+                  <option value="tutorial">Tutorial</option>
+                  <option value="creative-coding">Creative Coding</option>
+                  <option value="web">Web</option>
+                  <option value="tool">Tool</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="p-status">Status</label>
+                <select id="p-status" class="field-select"
+                  data-field="status">
+                  <option value="coming-soon">Coming Soon</option>
+                  <option value="in-progress">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="p-thumb">
+                  Thumbnail Filename
+                </label>
+                <input id="p-thumb" class="field-input" type="text"
+                  placeholder="thumb.jpg (leave empty for auto)"
+                  data-field="thumbnail">
+                <span class="field-hint">
+                  Resolves to: assets/images/projects/project-XXX/thumb.jpg
+                </span>
+              </div>
+            </div>
+
+            <div class="form-grid" style="margin-top:16px;">
+              <div class="field-group">
+                <label class="field-label" for="p-desc">
+                  Short Description <span class="field-required">*</span>
+                </label>
+                <textarea id="p-desc" class="field-textarea"
+                  placeholder="One or two sentences."
+                  data-field="description" rows="2" required></textarea>
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="p-longdesc">
+                  Long Description
+                </label>
+                <textarea id="p-longdesc" class="field-textarea"
+                  placeholder="Full explanation shown on project detail page."
+                  data-field="longDescription" rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 3: Tags -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20.59 13.41L13.42 20.58C13.2343 20.766 13.0137 20.9135 12.7709 21.0141C12.5281 21.1148 12.2678 21.1666 12.005 21.1666C11.7422 21.1666 11.4819 21.1148 11.2391 21.0141C10.9963 20.9135 10.7757 20.766 10.59 20.58L2 12V2H12L20.59 10.59C20.9625 10.9647 21.1716 11.4716 21.1716 12C21.1716 12.5284 20.9625 13.0353 20.59 13.41Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M7 7H7.01"
+                  stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round"/>
+              </svg>
+              Tags
+            </div>
+            <div class="field-group">
+              <label class="field-label">
+                Tags
+                <span class="field-hint" style="margin-left:6px;">
+                  Press Enter or comma to add
+                </span>
+              </label>
+              <div class="tags-input-wrap" id="p-tags-wrap">
+                <input class="tags-type-input" id="p-tags-input"
+                  type="text" placeholder="python, turtle, animation...">
+              </div>
+              <div id="p-tags-hidden"></div>
+            </div>
+          </div>
+
+          <!-- ROW 4: Links -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M10 13C10.4295 13.5741 10.9774 14.0492 11.6066 14.3929C12.2357 14.7367 12.9315 14.9411 13.6467 14.9923C14.3618 15.0435 15.0796 14.9403 15.7513 14.6897C16.4231 14.4392 17.0331 14.047 17.54 13.54L20.54 10.54C21.4508 9.59699 21.9548 8.33397 21.9434 7.02299C21.932 5.71201 21.4061 4.45794 20.4791 3.53087C19.5521 2.6038 18.298 2.07799 16.987 2.0666C15.676 2.0552 14.413 2.55918 13.47 3.46997L11.75 5.17997"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 11C13.5705 10.4259 13.0226 9.95083 12.3934 9.60707C11.7642 9.26331 11.0684 9.05889 10.3533 9.00768C9.63816 8.95646 8.92037 9.05964 8.24861 9.3102C7.57685 9.56077 6.96684 9.9529 6.45996 10.46L3.45996 13.46C2.54917 14.403 2.04519 15.666 2.05659 16.977C2.06798 18.288 2.5938 19.5421 3.52088 20.4691C4.44796 21.3962 5.70204 21.922 7.01302 21.9334C8.32400 21.9448 9.58701 21.4408 10.53 20.53L12.24 18.82"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Links
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field-group">
+                <label class="field-label" for="p-repo">Repo URL</label>
+                <input id="p-repo" class="field-input" type="url"
+                  placeholder="https://github.com/user/repo"
+                  data-field="repoUrl">
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="p-related">
+                  Related Video ID
+                </label>
+                <input id="p-related" class="field-input" type="text"
+                  placeholder="video-001" data-field="relatedVideo">
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 5: Live Link -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9"
+                  stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 3C12 3 8 7 8 12C8 17 12 21 12 21M12 3C12 3 16 7 16 12C16 17 12 21 12 21M3 12H21"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Live Link
+            </div>
+            <div class="form-grid form-grid-2">
+              <div class="field-group">
+                <label class="field-label">Has Live Link?</label>
+                <div class="toggle-wrap">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="p-has-live"
+                      data-field="hasLiveLink">
+                    <span class="toggle-track"></span>
+                  </label>
+                  <span class="toggle-label">
+                    Show live link button on site
+                  </span>
+                </div>
+              </div>
+              <div class="field-group" id="p-live-url-group"
+                style="display:none;">
+                <label class="field-label" for="p-live-url">Live URL</label>
+                <input id="p-live-url" class="field-input" type="url"
+                  placeholder="https://example.com"
+                  data-field="liveLink">
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 6: What I Learned -->
+          <div class="admin-card">
+            <div class="admin-card-title">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              What I Learned
+            </div>
+            <div class="learned-list" id="p-learned-list"></div>
+            <button type="button" class="add-file-btn"
+              id="p-add-learned" style="margin-top:10px;">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                <path d="M12 5V19M5 12H19"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Add Learning Point
+            </button>
+          </div>
+
+          <!-- GENERATE -->
+          <div class="btn-row" style="padding-bottom:8px;">
+            <button type="submit" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                <path d="M12 3V15M12 15L8 11M12 15L16 11"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 17V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V17"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round"/>
+              </svg>
+              Generate &amp; Download JSON
+            </button>
+            <button type="button" class="btn btn-ghost"
+              id="p-preview-btn">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none">
+                <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z"
+                  stroke="currentColor" stroke-width="1.8"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="3"
+                  stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+              Preview JSON
+            </button>
+            <button type="button" class="btn btn-ghost"
+              id="p-reset-btn">Reset Form</button>
+          </div>
+
+        </form>
+
+        <!-- JSON PREVIEW -->
+        <div class="admin-card" id="p-preview-card"
+          style="display:none;margin-top:20px;">
+          <div class="json-preview-toolbar">
+            <span class="json-preview-label">Generated JSON</span>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm" id="p-copy-json">
+                Copy JSON
+              </button>
+              <button class="btn btn-cyan btn-sm" id="p-download-json">
+                Download
+              </button>
+            </div>
+          </div>
+          <div class="json-preview-code" id="p-json-output"></div>
+          <div style="padding:16px;border-top:1px solid var(--line);">
+            <p style="font-size:0.78rem;color:var(--text-3);
+              font-family:monospace;white-space:pre-line;margin:0;"
+              id="p-placement-hint"></p>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/storage.js"></script>
+  <script src="assets/js/json-generator.js"></script>
+  <script>
+  (function () {
+
+    /* guard */
+    window.CoderAnimeAuth.guardPage();
+    window.CoderAnimeAuth.initLogout();
+
+    const Gen     = window.CoderAnimeGenerator;
+    const Storage = window.CoderAnimeStorage;
+
+    /* -----------------------------------------------
+       TAB SWITCHING
+       ----------------------------------------------- */
+    const tabVideo   = document.getElementById("tab-video");
+    const tabProject = document.getElementById("tab-project");
+    const videoWrap  = document.getElementById("video-form-wrap");
+    const projWrap   = document.getElementById("project-form-wrap");
+
+    function setTab(type) {
+      if (type === "video") {
+        videoWrap.style.display = "";
+        projWrap.style.display  = "none";
+        tabVideo.className   = "btn btn-primary";
+        tabProject.className = "btn btn-ghost";
+      } else {
+        videoWrap.style.display = "none";
+        projWrap.style.display  = "";
+        tabVideo.className   = "btn btn-ghost";
+        tabProject.className = "btn btn-primary";
+      }
+    }
+
+    tabVideo.addEventListener("click",   () => setTab("video"));
+    tabProject.addEventListener("click", () => setTab("project"));
+
+    /* check URL param for default tab */
+    const urlType = new URLSearchParams(window.location.search).get("type");
+    setTab(urlType === "project" ? "project" : "video");
+
+    /* -----------------------------------------------
+       TAGS INPUT SYSTEM
+       Generic — works for both video and project
+       ----------------------------------------------- */
+    function initTagsInput(wrapId, inputId) {
+      const wrap  = document.getElementById(wrapId);
+      const input = document.getElementById(inputId);
+      let tags    = [];
+
+      function renderTags() {
+        wrap.querySelectorAll(".tag-chip").forEach((c) => c.remove());
+        tags.forEach((tag, i) => {
+          const chip = document.createElement("span");
+          chip.className = "tag-chip";
+          chip.innerHTML = `
+            ${tag}
+            <button type="button" class="tag-chip-remove"
+              aria-label="Remove ${tag}">✕</button>
+          `;
+          chip.querySelector(".tag-chip-remove")
+            .addEventListener("click", () => {
+              tags.splice(i, 1);
+              renderTags();
+            });
+          wrap.insertBefore(chip, input);
+        });
+      }
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === ",") {
+          e.preventDefault();
+          const val = input.value.trim().replace(/,$/, "");
+          if (val && !tags.includes(val)) {
+            tags.push(val);
+            renderTags();
+          }
+          input.value = "";
+        }
+        if (e.key === "Backspace" && !input.value && tags.length) {
+          tags.pop();
+          renderTags();
+        }
+      });
+
+      wrap.addEventListener("click", () => input.focus());
+
+      return { getTags: () => [...tags], setTags: (t) => { tags = t; renderTags(); }, clear: () => { tags = []; renderTags(); } };
+    }
+
+    const vTags = initTagsInput("v-tags-wrap", "v-tags-input");
+    const pTags = initTagsInput("p-tags-wrap", "p-tags-input");
+
+    /* -----------------------------------------------
+       FILE ENTRIES — VIDEO FORM
+       ----------------------------------------------- */
+    let vFileCount = 0;
+
+    function addVideoFile(data = {}) {
+      const idx  = vFileCount++;
+      const list = document.getElementById("v-files-list");
+      const div  = document.createElement("div");
+      div.className    = "file-entry";
+      div.dataset.fileIdx = idx;
+      div.innerHTML = `
+        <div class="file-entry-grid">
+          <div class="field-group">
+            <label class="field-label">Filename</label>
+            <input class="field-input" type="text"
+              placeholder="main.py" data-file-name
+              value="${data.name || ""}">
+          </div>
+          <div class="field-group">
+            <label class="field-label">Language</label>
+            <select class="field-select" data-file-lang>
+              <option value="python" ${(data.language||"python")==="python"?"selected":""}>Python</option>
+              <option value="javascript" ${data.language==="javascript"?"selected":""}>JavaScript</option>
+              <option value="css" ${data.language==="css"?"selected":""}>CSS</option>
+              <option value="html" ${data.language==="html"?"selected":""}>HTML</option>
+              <option value="text" ${data.language==="text"?"selected":""}>Text</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Direct Link (optional)</label>
+            <input class="field-input" type="url"
+              placeholder="https://raw.github..." data-file-direct
+              value="${data.directLink || ""}">
+          </div>
+          <button type="button" class="file-entry-remove"
+            aria-label="Remove file">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
+              <path d="M18 6L6 18M6 6L18 18"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      `;
+
+      div.querySelector(".file-entry-remove")
+        .addEventListener("click", () => div.remove());
+
+      list.appendChild(div);
+    }
+
+    document.getElementById("v-add-file")
+      .addEventListener("click", () => addVideoFile());
+
+    /* start with one empty file entry */
+    addVideoFile();
+
+    /* -----------------------------------------------
+       WHAT I LEARNED — PROJECT FORM
+       ----------------------------------------------- */
+    function addLearnedItem(value = "") {
+      const list = document.getElementById("p-learned-list");
+      const div  = document.createElement("div");
+      div.className = "learned-item";
+      div.innerHTML = `
+        <input class="field-input" type="text"
+          placeholder="What did you learn from this project?"
+          data-learned-item value="${value}">
+        <button type="button" class="learned-item-remove"
+          aria-label="Remove">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none">
+            <path d="M18 6L6 18M6 6L18 18"
+              stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round"/>
+          </svg>
+        </button>
+      `;
+      div.querySelector(".learned-item-remove")
+        .addEventListener("click", () => div.remove());
+      list.appendChild(div);
+    }
+
+    document.getElementById("p-add-learned")
+      .addEventListener("click", () => addLearnedItem());
+
+    /* start with two empty items */
+    addLearnedItem();
+    addLearnedItem();
+
+    /* -----------------------------------------------
+       LIVE LINK TOGGLE
+       ----------------------------------------------- */
+    document.getElementById("v-has-live")
+      .addEventListener("change", (e) => {
+        document.getElementById("v-live-url-group").style.display =
+          e.target.checked ? "" : "none";
+      });
+
+    document.getElementById("p-has-live")
+      .addEventListener("change", (e) => {
+        document.getElementById("p-live-url-group").style.display =
+          e.target.checked ? "" : "none";
+      });
+
+    /* -----------------------------------------------
+       SUGGEST ID BUTTONS
+       ----------------------------------------------- */
+    document.querySelector("[data-suggest-video-id]")
+      .addEventListener("click", () => {
+        document.getElementById("v-id").value =
+          Storage.getNextVideoId();
+      });
+
+    document.querySelector("[data-suggest-project-id]")
+      .addEventListener("click", () => {
+        document.getElementById("p-id").value =
+          Storage.getNextProjectId();
+      });
+
+    /* -----------------------------------------------
+       COLLECT VIDEO FORM DATA
+       ----------------------------------------------- */
+    function collectVideoData() {
+      const files = [];
+      document.querySelectorAll("#v-files-list .file-entry").forEach((entry) => {
+        const name   = entry.querySelector("[data-file-name]").value.trim();
+        const lang   = entry.querySelector("[data-file-lang]").value;
+        const direct = entry.querySelector("[data-file-direct]").value.trim();
+        if (name) files.push({ name, language: lang, directLink: direct });
+      });
+
+      return {
+        id:              document.getElementById("v-id").value.trim(),
+        title:           document.getElementById("v-title").value.trim(),
+        description:     document.getElementById("v-desc").value.trim(),
+        longDescription: document.getElementById("v-longdesc").value.trim(),
+        category:        document.getElementById("v-category").value,
+        tags:            vTags.getTags(),
+        thumbnail:       document.getElementById("v-thumb").value.trim(),
+        youtubeUrl:      document.getElementById("v-yt-url").value.trim(),
+        youtubeId:       document.getElementById("v-yt-id").value.trim() || null,
+        datePublished:   document.getElementById("v-date").value || Gen.todayDate(),
+        duration:        document.getElementById("v-duration").value.trim() || null,
+        relatedProject:  document.getElementById("v-related").value.trim() || null,
+        sourceRepo:      document.getElementById("v-repo").value.trim(),
+        hasLiveLink:     document.getElementById("v-has-live").checked,
+        liveLink:        document.getElementById("v-live-url").value.trim(),
+        files
+      };
+    }
+
+    /* -----------------------------------------------
+       COLLECT PROJECT FORM DATA
+       ----------------------------------------------- */
+    function collectProjectData() {
+      const learned = [];
+      document.querySelectorAll("[data-learned-item]").forEach((el) => {
+        const val = el.value.trim();
+        if (val) learned.push(val);
+      });
+
+      return {
+        id:              document.getElementById("p-id").value.trim(),
+        title:           document.getElementById("p-title").value.trim(),
+        description:     document.getElementById("p-desc").value.trim(),
+        longDescription: document.getElementById("p-longdesc").value.trim(),
+        category:        document.getElementById("p-category").value,
+        status:          document.getElementById("p-status").value,
+        tags:            pTags.getTags(),
+        thumbnail:       document.getElementById("p-thumb").value.trim(),
+        dateCreated:     document.getElementById("p-date").value || Gen.todayDate(),
+        repoUrl:         document.getElementById("p-repo").value.trim() || null,
+        relatedVideo:    document.getElementById("p-related").value.trim() || null,
+        hasLiveLink:     document.getElementById("p-has-live").checked,
+        liveLink:        document.getElementById("p-live-url").value.trim(),
+        whatILearned:    learned
+      };
+    }
+
+    /* -----------------------------------------------
+       VIDEO FORM — SUBMIT (download)
+       ----------------------------------------------- */
+    document.getElementById("video-form")
+      .addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = collectVideoData();
+        if (!data.id || !data.title) return;
+
+        const json = Gen.buildVideoJSON(data);
+        Storage.saveVideo(json);
+        Storage.confirmVideoId(json.id);
+        Gen.downloadJSON(json, Gen.getFilename(json.id, "video"));
+        showVideoPreview(json);
+      });
+
+    /* -----------------------------------------------
+       VIDEO FORM — PREVIEW
+       ----------------------------------------------- */
+    document.getElementById("v-preview-btn")
+      .addEventListener("click", () => {
+        const data = collectVideoData();
+        const json = Gen.buildVideoJSON(data);
+        showVideoPreview(json);
+      });
+
+    function showVideoPreview(json) {
+      const card    = document.getElementById("v-preview-card");
+      const output  = document.getElementById("v-json-output");
+      const hint    = document.getElementById("v-placement-hint");
+      card.style.display = "";
+      output.textContent = Gen.formatJSON(json);
+      hint.textContent   = Gen.getPlacementHint(json, "video");
+      card.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    /* video copy + download from preview */
+    let vLastJSON = null;
+    document.getElementById("v-copy-json").addEventListener("click", (e) => {
+      const data = collectVideoData();
+      vLastJSON  = Gen.buildVideoJSON(data);
+      Gen.copyJSON(vLastJSON, e.currentTarget);
+    });
+
+    document.getElementById("v-download-json").addEventListener("click", () => {
+      const data = collectVideoData();
+      vLastJSON  = Gen.buildVideoJSON(data);
+      Gen.downloadJSON(vLastJSON, Gen.getFilename(vLastJSON.id, "video"));
+    });
+
+    /* video reset */
+    document.getElementById("v-reset-btn").addEventListener("click", () => {
+      document.getElementById("video-form").reset();
+      vTags.clear();
+      document.getElementById("v-files-list").innerHTML = "";
+      vFileCount = 0;
+      addVideoFile();
+      document.getElementById("v-preview-card").style.display = "none";
+      document.getElementById("v-live-url-group").style.display = "none";
+    });
+
+    /* -----------------------------------------------
+       PROJECT FORM — SUBMIT (download)
+       ----------------------------------------------- */
+    document.getElementById("project-form")
+      .addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = collectProjectData();
+        if (!data.id || !data.title) return;
+
+        const json = Gen.buildProjectJSON(data);
+        Storage.saveProject(json);
+        Storage.confirmProjectId(json.id);
+        Gen.downloadJSON(json, Gen.getFilename(json.id, "project"));
+        showProjectPreview(json);
+      });
+
+    /* -----------------------------------------------
+       PROJECT FORM — PREVIEW
+       ----------------------------------------------- */
+    document.getElementById("p-preview-btn")
+      .addEventListener("click", () => {
+        const data = collectProjectData();
+        const json = Gen.buildProjectJSON(data);
+        showProjectPreview(json);
+      });
+
+    function showProjectPreview(json) {
+      const card   = document.getElementById("p-preview-card");
+      const output = document.getElementById("p-json-output");
+      const hint   = document.getElementById("p-placement-hint");
+      card.style.display = "";
+      output.textContent = Gen.formatJSON(json);
+      hint.textContent   = Gen.getPlacementHint(json, "project");
+      card.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    /* project copy + download from preview */
+    document.getElementById("p-copy-json").addEventListener("click", (e) => {
+      const data = collectProjectData();
+      const json = Gen.buildProjectJSON(data);
+      Gen.copyJSON(json, e.currentTarget);
+    });
+
+    document.getElementById("p-download-json").addEventListener("click", () => {
+      const data = collectProjectData();
+      const json = Gen.buildProjectJSON(data);
+      Gen.downloadJSON(json, Gen.getFilename(json.id, "project"));
+    });
+
+    /* project reset */
+    document.getElementById("p-reset-btn").addEventListener("click", () => {
+      document.getElementById("project-form").reset();
+      pTags.clear();
+      document.getElementById("p-learned-list").innerHTML = "";
+      addLearnedItem();
+      addLearnedItem();
+      document.getElementById("p-preview-card").style.display = "none";
+      document.getElementById("p-live-url-group").style.display = "none";
+    });
+
+    /* set today date defaults */
+    const today = Gen.todayDate();
+    document.getElementById("v-date").value = today;
+    document.getElementById("p-date").value = today;
+
+  })();
+  </script>
+</body>
+</html>

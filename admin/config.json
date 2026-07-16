@@ -1,0 +1,8 @@
+{
+  "passwordHashes": [
+    "60c15ac744f9b61f5ae6b90df54be2bac5cb028e0b7629d2a84c49b2d5605dcc",
+    "c6f3878c7974fe4f7456dc1024347d21666c631172bea3f85b088df5b7d38ffc"
+  ],
+  "sessionKey": "cam-admin-auth",
+  "adminVersion": "2.0"
+}
